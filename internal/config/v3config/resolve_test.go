@@ -179,7 +179,7 @@ assets:
       image: assets/dashboard/simple/panel/background.png
 logs:
   jsonl:
-    path: logs/godrivelog.jsonl
+    path: logs/gogauges.jsonl
     sensors:
       - speed
 dashboards:
@@ -227,7 +227,7 @@ assets:
       image: assets/dashboard/simple/panel/background.png
 logs:
   jsonl:
-    path: logs/godrivelog.jsonl
+    path: logs/gogauges.jsonl
     sensors:
       - speed
   bench_jsonl:
@@ -281,7 +281,7 @@ assets:
       image: assets/dashboard/simple/panel/background.png
 logs:
   jsonl:
-    path: logs/godrivelog.jsonl
+    path: logs/gogauges.jsonl
     sensors:
       - speed
 dashboards:
@@ -343,7 +343,7 @@ assets:
       image: assets/dashboard/simple/panel/background.png
 logs:
   jsonl:
-    path: logs/godrivelog.jsonl
+    path: logs/gogauges.jsonl
     sensors:
       - speed
 dashboards:

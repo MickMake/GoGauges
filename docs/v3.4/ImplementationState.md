@@ -1,4 +1,4 @@
-# GoDriveLog v3.4 implementation state
+# GoGauges v3.4 implementation state
 
 Status: v3.4.12 gauge-aware harness sweep implemented
 Current target: none
@@ -228,18 +228,18 @@ v3.4.10 through v3.4.12 reshape the existing flat flag dashboard entry points in
 Target command tree:
 
 ```text
-GoDriveLog dashboard [--config <config-file>]
-GoDriveLog dashboard run [vehicle-id] [--config <config-file>] [--renderer ebiten]
-GoDriveLog dashboard harness [vehicle-id] [--config <config-file>] [--pattern sweep] [--interval 50ms] [--duration 60s] [--renderer ebiten]
-GoDriveLog dashboard examples --output <directory> [--config <config-file>] [--vehicle <vehicle-id>] [--theme framework-smoke] [--force]
-GoDriveLog dashboard validate [config-file]
-GoDriveLog dashboard validate [--config <config-file>]
+GoGauges dashboard [--config <config-file>]
+GoGauges dashboard run [vehicle-id] [--config <config-file>] [--renderer ebiten]
+GoGauges dashboard harness [vehicle-id] [--config <config-file>] [--pattern sweep] [--interval 50ms] [--duration 60s] [--renderer ebiten]
+GoGauges dashboard examples --output <directory> [--config <config-file>] [--vehicle <vehicle-id>] [--theme framework-smoke] [--force]
+GoGauges dashboard validate [config-file]
+GoGauges dashboard validate [--config <config-file>]
 ```
 
 CLI remapping state:
 
 - v3.4.10 is command routing work, not replacement backend work.
-- `cmd/GoDriveLog/main_ebiten.go` now exposes the active dashboard CLI under `dashboard`.
+- `cmd/GoGauges/main_ebiten.go` now exposes the active dashboard CLI under `dashboard`.
 - `dashboard run` and `dashboard harness` reuse the existing Ebiten runtime and harness paths.
 - `dashboard validate` reuses the existing config parser/validator and accepts either positional config or `--config`.
 - `dashboard examples` exports a self-contained built-in or explicit source dashboard directory to a caller-provided output root.
@@ -248,19 +248,19 @@ CLI remapping state:
 - Harness input remains sensor-centric, so sensors shared by mixed widget/gauge families use deterministic precedence instead of per-widget duplicate values: `indicator`, then `bar`, then range-sweep gauges, then numeric/odometer rollover.
 - Deterministic config discovery now selects single-vehicle configs or requires explicit vehicle selection when the first valid config is multi-vehicle.
 - Relative gauge-package loading now also honors the resolved dashboard config path when discovery selected the config instead of a literal `--config` argument.
-- Headless CI must not run `go test ./...` against `cmd/GoDriveLog`; the active Actions validation path is `go test ./internal/... ./scripts/generate-example-assets` plus `go test -c ./cmd/GoDriveLog`, because the Ebiten/GLFW command package imports display-backed code paths.
+- Headless CI must not run `go test ./...` against `cmd/GoGauges`; the active Actions validation path is `go test ./internal/... ./scripts/generate-example-assets` plus `go test -c ./cmd/GoGauges`, because the Ebiten/GLFW command package imports display-backed code paths.
 - Do not create new runtime packages, renderer abstractions, config schemas, validation engines, harness engines, or example-generation systems as part of the CLI tail.
 
 Command routing target:
 
 | New command form | Existing flat flag path or machinery being remapped | Existing code path to reuse |
 |---|---|---|
-| `GoDriveLog dashboard run [vehicle-id]` | Default run path when `--harness=false`; uses existing `--config`, `--vehicle`, `--renderer`, and current runtime duration handling if preserved. | Existing `runV3EbitenCommand(configPath, vehicleID, duration)` path. |
-| `GoDriveLog dashboard harness [vehicle-id]` | Existing `--harness=true` path plus `--config`, `--vehicle`, `--pattern`, `--interval`, `--duration`, and `--renderer`. | Existing `runV3EbitenHarnessCommand(configPath, vehicleID, pattern, interval, duration)` path. |
-| `GoDriveLog dashboard validate [config-file]` | Existing config load and validation behaviour, reached through a command instead of flat flags. | Existing config parsing/validation helpers; do not create a replacement validator. |
-| `GoDriveLog dashboard validate --config <config-file>` | Existing `--config` file selection plus existing config validation behaviour. | Existing config parsing/validation helpers; do not create a replacement validator. |
-| `GoDriveLog dashboard [--config <config-file>]` | Existing config load structures, rendered as a compact overview. | Existing config parsing structures; do not invent a new config model. |
-| `GoDriveLog dashboard examples --output <directory>` | Existing generated example asset machinery/scripts, plus existing `--config` and `--vehicle` concepts where relevant. | Existing generated-example helpers/scripts; do not build a duplicate generator. |
+| `GoGauges dashboard run [vehicle-id]` | Default run path when `--harness=false`; uses existing `--config`, `--vehicle`, `--renderer`, and current runtime duration handling if preserved. | Existing `runV3EbitenCommand(configPath, vehicleID, duration)` path. |
+| `GoGauges dashboard harness [vehicle-id]` | Existing `--harness=true` path plus `--config`, `--vehicle`, `--pattern`, `--interval`, `--duration`, and `--renderer`. | Existing `runV3EbitenHarnessCommand(configPath, vehicleID, pattern, interval, duration)` path. |
+| `GoGauges dashboard validate [config-file]` | Existing config load and validation behaviour, reached through a command instead of flat flags. | Existing config parsing/validation helpers; do not create a replacement validator. |
+| `GoGauges dashboard validate --config <config-file>` | Existing `--config` file selection plus existing config validation behaviour. | Existing config parsing/validation helpers; do not create a replacement validator. |
+| `GoGauges dashboard [--config <config-file>]` | Existing config load structures, rendered as a compact overview. | Existing config parsing structures; do not invent a new config model. |
+| `GoGauges dashboard examples --output <directory>` | Existing generated example asset machinery/scripts, plus existing `--config` and `--vehicle` concepts where relevant. | Existing generated-example helpers/scripts; do not build a duplicate generator. |
 
 Flag redistribution:
 
@@ -286,10 +286,10 @@ Slice state:
 Config discovery state:
 
 - Explicit positional config or `--config` loads exactly that file and bypasses discovery.
-- If no config is supplied, search the current working directory, then `/etc/godrivelog` recursively.
+- If no config is supplied, search the current working directory, then `/etc/gogauges` recursively.
 - Sort each directory's entries alphabetically before evaluating them.
 - Search the current working directory non-recursively.
-- Candidate config filenames are `godrivelog.yaml`, `godrivelog.yml`, `dashboard.yaml`, `dashboard.yml`, `config.yaml`, and `config.yml`.
+- Candidate config filenames are `gogauges.yaml`, `gogauges.yml`, `dashboard.yaml`, `dashboard.yml`, `config.yaml`, and `config.yml`.
 - With no vehicle ID, use the first valid config in search order that defines exactly one vehicle.
 - With no vehicle ID, the first valid multi-vehicle config stops discovery and returns a vehicle-required error.
 - With a vehicle ID, use the first valid single-vehicle or multi-vehicle config in search order that defines the requested vehicle.

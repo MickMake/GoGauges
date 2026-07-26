@@ -1,4 +1,4 @@
-# GoDriveLog v3 migration state
+# GoGauges v3 migration state
 
 Status: active
 Last updated: 2026-06-15

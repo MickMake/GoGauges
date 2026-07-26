@@ -1,4 +1,4 @@
-# GoDriveLog v3 chat prompts
+# GoGauges v3 chat prompts
 
 Status: workflow guidance  
 Applies to: using ChatGPT chats to implement and verify the v3 migration  
@@ -6,7 +6,7 @@ References: `MigrationState.md`, `MigrationGuardrails.md`, `ImplementationGuardr
 
 ## 1. Purpose
 
-This file contains the reusable prompts for the GoDriveLog v3 migration workflow.
+This file contains the reusable prompts for the GoGauges v3 migration workflow.
 
 The goal is a simple process:
 
@@ -39,9 +39,9 @@ If `MigrationState.md` and this file disagree about the current position, stop a
 Use this prompt for the first real migration implementation slice.
 
 ```text
-You are the implementation chat for GoDriveLog v3.0.0.
+You are the implementation chat for GoGauges v3.0.0.
 
-Repository: MickMake/GoDriveLog
+Repository: MickMake/GoGauges
 
 Target version: v3.0.0
 Target stage: working-code inventory and seam plan
@@ -109,9 +109,9 @@ After approval:
 ## 5. Implementation prompt: v3.0.1 — frozen v3 docs and schema target
 
 ```text
-You are the implementation chat for GoDriveLog v3.0.1.
+You are the implementation chat for GoGauges v3.0.1.
 
-Repository: MickMake/GoDriveLog
+Repository: MickMake/GoGauges
 
 Target version: v3.0.1
 Target stage: frozen v3 docs and schema target
@@ -150,9 +150,9 @@ After approval, open a PR and do not merge.
 ## 6. Implementation prompt: v3.0.2 — strict v3 config load and validation
 
 ```text
-You are the implementation chat for GoDriveLog v3.0.2.
+You are the implementation chat for GoGauges v3.0.2.
 
-Repository: MickMake/GoDriveLog
+Repository: MickMake/GoGauges
 
 Target version: v3.0.2
 Target stage: strict v3 config load and validation
@@ -196,9 +196,9 @@ After approval, open a PR and do not merge.
 ## 7. Implementation prompt: v3.0.3 — RuntimePlan resolution
 
 ```text
-You are the implementation chat for GoDriveLog v3.0.3.
+You are the implementation chat for GoGauges v3.0.3.
 
-Repository: MickMake/GoDriveLog
+Repository: MickMake/GoGauges
 
 Target version: v3.0.3
 Target stage: RuntimePlan resolution
@@ -237,9 +237,9 @@ After approval, open a PR and do not merge.
 ## 8. Implementation prompt: v3.0.4 — endpoint abstraction with serial/TCP simulator support
 
 ```text
-You are the implementation chat for GoDriveLog v3.0.4.
+You are the implementation chat for GoGauges v3.0.4.
 
-Repository: MickMake/GoDriveLog
+Repository: MickMake/GoGauges
 
 Target version: v3.0.4
 Target stage: endpoint abstraction with serial/TCP simulator support
@@ -276,9 +276,9 @@ After approval, open a PR and do not merge.
 ## 9. Implementation prompt: v3.0.5 — sensor event spine and latest-state store
 
 ```text
-You are the implementation chat for GoDriveLog v3.0.5.
+You are the implementation chat for GoGauges v3.0.5.
 
-Repository: MickMake/GoDriveLog
+Repository: MickMake/GoGauges
 
 Target version: v3.0.5
 Target stage: sensor event spine and latest-state store
@@ -317,9 +317,9 @@ After approval, open a PR and do not merge.
 ## 10. Implementation prompt: v3.0.6 — selected JSONL logging
 
 ```text
-You are the implementation chat for GoDriveLog v3.0.6.
+You are the implementation chat for GoGauges v3.0.6.
 
-Repository: MickMake/GoDriveLog
+Repository: MickMake/GoGauges
 
 Target version: v3.0.6
 Target stage: selected JSONL logging
@@ -358,9 +358,9 @@ After approval, open a PR and do not merge.
 ## 11. Implementation prompt: v3.0.7 — minimal asset registry
 
 ```text
-You are the implementation chat for GoDriveLog v3.0.7.
+You are the implementation chat for GoGauges v3.0.7.
 
-Repository: MickMake/GoDriveLog
+Repository: MickMake/GoGauges
 
 Target version: v3.0.7
 Target stage: minimal asset registry
@@ -405,9 +405,9 @@ After approval, open a PR and do not merge.
 ## 12. Implementation prompt: v3.0.8 — smallest selected dashboard
 
 ```text
-You are the implementation chat for GoDriveLog v3.0.8.
+You are the implementation chat for GoGauges v3.0.8.
 
-Repository: MickMake/GoDriveLog
+Repository: MickMake/GoGauges
 
 Target version: v3.0.8
 Target stage: smallest selected dashboard
@@ -453,9 +453,9 @@ After approval, open a PR and do not merge.
 ## 13. Implementation prompt: v3.0.9 — richer asset registry
 
 ```text
-You are the implementation chat for GoDriveLog v3.0.9.
+You are the implementation chat for GoGauges v3.0.9.
 
-Repository: MickMake/GoDriveLog
+Repository: MickMake/GoGauges
 
 Target version: v3.0.9
 Target stage: richer asset registry
@@ -497,9 +497,9 @@ After approval, open a PR and do not merge.
 ## 14. Implementation prompt: v3.0.10 — richer dashboard widgets
 
 ```text
-You are the implementation chat for GoDriveLog v3.0.10.
+You are the implementation chat for GoGauges v3.0.10.
 
-Repository: MickMake/GoDriveLog
+Repository: MickMake/GoGauges
 
 Target version: v3.0.10
 Target stage: richer dashboard widgets
@@ -541,9 +541,9 @@ After approval, open a PR and do not merge.
 ## 15. Implementation prompt: v3.0.11 — retire or archive replaced current paths
 
 ```text
-You are the implementation chat for GoDriveLog v3.0.11.
+You are the implementation chat for GoGauges v3.0.11.
 
-Repository: MickMake/GoDriveLog
+Repository: MickMake/GoGauges
 
 Target version: v3.0.11
 Target stage: retire or archive replaced current paths
@@ -581,9 +581,9 @@ After approval, open a PR and do not merge.
 Use this prompt for every verification chat.
 
 ```text
-You are the verification chat for GoDriveLog v3.
+You are the verification chat for GoGauges v3.
 
-Repository: MickMake/GoDriveLog
+Repository: MickMake/GoGauges
 
 PR to verify: <PR_NUMBER>
 

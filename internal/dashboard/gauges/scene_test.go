@@ -8,7 +8,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/MickMake/GoDriveLog/internal/sensors"
+	"github.com/MickMake/GoGauges/internal/sensors"
 )
 
 func TestRadialSceneCalibrationOffsetDoesNotClampWhenValueMapClampFalse(t *testing.T) {

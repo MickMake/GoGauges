@@ -1,4 +1,4 @@
-# GoDriveLog Codex Guidance
+# GoGauges Codex Guidance
 
 Before planning or changing code or documentation, read:
 

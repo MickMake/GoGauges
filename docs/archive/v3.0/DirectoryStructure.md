@@ -1,11 +1,11 @@
-# GoDriveLog v3 directory structure
+# GoGauges v3 directory structure
 
 This is the intended v3 repo layout. Some runtime files may still differ while the codebase catches up to the documentation.
 
 ```text
-GoDriveLog/
+GoGauges/
   cmd/
-    GoDriveLog/
+    GoGauges/
       main.go
 
   internal/

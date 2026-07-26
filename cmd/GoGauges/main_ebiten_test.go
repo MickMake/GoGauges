@@ -11,9 +11,9 @@ import (
 	"testing"
 	"time"
 
-	v3harness "github.com/MickMake/GoDriveLog/internal/dashboard/harness"
-	"github.com/MickMake/GoDriveLog/internal/dashboard/v3dashboard"
-	"github.com/MickMake/GoDriveLog/internal/sensors"
+	v3harness "github.com/MickMake/GoGauges/internal/dashboard/harness"
+	"github.com/MickMake/GoGauges/internal/dashboard/v3dashboard"
+	"github.com/MickMake/GoGauges/internal/sensors"
 )
 
 func TestDashboardRunDiscoversSingleVehicleConfig(t *testing.T) {
@@ -53,7 +53,7 @@ func TestDashboardRunDiscoversSingleVehicleConfig(t *testing.T) {
 func TestDashboardRunStopsAtFirstValidMultiVehicleConfigWithoutVehicle(t *testing.T) {
 	root := t.TempDir()
 	writeTestConfig(t, filepath.Join(root, "config.yaml"), multiVehicleConfigYAML())
-	writeTestConfig(t, filepath.Join(root, "godrivelog.yaml"), singleVehicleConfigYAML("later"))
+	writeTestConfig(t, filepath.Join(root, "gogauges.yaml"), singleVehicleConfigYAML("later"))
 	restoreWD := changeWorkingDirectory(t, root)
 	defer restoreWD()
 
@@ -69,7 +69,7 @@ func TestDashboardRunStopsAtFirstValidMultiVehicleConfigWithoutVehicle(t *testin
 func TestDashboardRunSearchesConfigsForRequestedVehicle(t *testing.T) {
 	root := t.TempDir()
 	writeTestConfig(t, filepath.Join(root, "config.yaml"), singleVehicleConfigYAML("demo"))
-	writeTestConfig(t, filepath.Join(root, "godrivelog.yaml"), multiVehicleConfigYAML())
+	writeTestConfig(t, filepath.Join(root, "gogauges.yaml"), multiVehicleConfigYAML())
 	restoreWD := changeWorkingDirectory(t, root)
 	defer restoreWD()
 
@@ -88,8 +88,8 @@ func TestDashboardRunSearchesConfigsForRequestedVehicle(t *testing.T) {
 	if err := runCLI([]string{"dashboard", "run", "bench_z31"}, &bytes.Buffer{}, &bytes.Buffer{}); err != nil {
 		t.Fatalf("runCLI returned error: %v", err)
 	}
-	if filepath.Base(gotConfig) != "godrivelog.yaml" {
-		t.Fatalf("config path = %q, want godrivelog.yaml", gotConfig)
+	if filepath.Base(gotConfig) != "gogauges.yaml" {
+		t.Fatalf("config path = %q, want gogauges.yaml", gotConfig)
 	}
 	if gotVehicle != "bench_z31" {
 		t.Fatalf("vehicle id = %q, want bench_z31", gotVehicle)
@@ -343,7 +343,7 @@ func TestDashboardOverviewPrintsResolvedConfigHierarchy(t *testing.T) {
 		t.Fatalf("Abs(%s): %v", configPath, err)
 	}
 	for _, want := range []string{
-		"GoDriveLog dashboard overview",
+		"GoGauges dashboard overview",
 		"Resolved config: " + absoluteConfigPath,
 		"- demo (Demo)",
 		"obd source: serial:///dev/ttyUSB0",
@@ -485,32 +485,32 @@ func TestDashboardHelpOutputsIncludeNewCommandTree(t *testing.T) {
 		{
 			name: "dashboard",
 			args: []string{"dashboard", "--help"},
-			want: []string{"GoDriveLog dashboard [--config <config-file>]", "--config", "run", "harness", "examples", "validate"},
+			want: []string{"GoGauges dashboard [--config <config-file>]", "--config", "run", "harness", "examples", "validate"},
 		},
 		{
 			name: "run",
 			args: []string{"dashboard", "run", "--help"},
-			want: []string{"GoDriveLog dashboard run [vehicle-id]", "--config", "--renderer", "--duration"},
+			want: []string{"GoGauges dashboard run [vehicle-id]", "--config", "--renderer", "--duration"},
 		},
 		{
 			name: "harness",
 			args: []string{"dashboard", "harness", "--help"},
-			want: []string{"GoDriveLog dashboard harness [vehicle-id]", "--pattern", "--interval", "--duration"},
+			want: []string{"GoGauges dashboard harness [vehicle-id]", "--pattern", "--interval", "--duration"},
 		},
 		{
 			name: "examples",
 			args: []string{"dashboard", "examples", "--help"},
-			want: []string{"GoDriveLog dashboard examples --output <directory>", "--output", "--theme", "--force"},
+			want: []string{"GoGauges dashboard examples --output <directory>", "--output", "--theme", "--force"},
 		},
 		{
 			name: "preview",
 			args: []string{"dashboard", "preview", "--help"},
-			want: []string{"GoDriveLog dashboard preview <file>", "--gauge", "--value", "--step", "--fine-step", "--coarse-step"},
+			want: []string{"GoGauges dashboard preview <file>", "--gauge", "--value", "--step", "--fine-step", "--coarse-step"},
 		},
 		{
 			name: "validate",
 			args: []string{"dashboard", "validate", "--help"},
-			want: []string{"GoDriveLog dashboard validate [config-file]", "--config"},
+			want: []string{"GoGauges dashboard validate [config-file]", "--config"},
 		},
 	}
 

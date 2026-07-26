@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Old GoDriveLog type | `indicator` |
+| Old GoGauges type | `indicator` |
 | Old realism key | `realism.thermal_fade` |
 | New Gauge group | `indicator_lamp` |
 | Paired custom quirk design | `docs/Designs/Gauge/indicator_lamp/quirks/custom_thermal_fade.md` |
@@ -19,7 +19,7 @@ The behaviour applies to rendered indicator state only. It must not change sourc
 
 ## Configuration boundary
 
-The old GoDriveLog realism key remains `realism.thermal_fade`.
+The old GoGauges realism key remains `realism.thermal_fade`.
 
 This document does not rename that key and does not introduce a new Gauge-tree runtime configuration name.
 
@@ -29,7 +29,7 @@ Thermal fade is not a power lifecycle model. Do not treat random flicker, browno
 
 ## Documentation boundary
 
-This file records current GoDriveLog custom quirk implementation behaviour only.
+This file records current GoGauges custom quirk implementation behaviour only.
 
 It does not:
 - record implementation status;

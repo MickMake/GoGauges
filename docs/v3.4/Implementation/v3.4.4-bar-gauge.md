@@ -4,14 +4,14 @@
 
 | Field | Value |
 |---|---|
-| Old GoDriveLog type | `bar` |
+| Old GoGauges type | `bar` |
 | New Gauge group | `bar_or_wedge_display` |
 | Paired design | `docs/Designs/Gauge/bar_or_wedge_display/gauges/custom_bar.md` |
 | Runtime code impact | None |
 
 ## Current implementation model
 
-The current GoDriveLog `bar` implementation treats bar gauges as transform gauges. A numeric sensor value is normalised and used to reveal or clip an active level layer.
+The current GoGauges `bar` implementation treats bar gauges as transform gauges. A numeric sensor value is normalised and used to reveal or clip an active level layer.
 
 ## Configuration shape
 
@@ -35,7 +35,7 @@ This file documents the existing `bar` runtime type only. It does not merge the 
 
 ## Documentation boundary
 
-This file records current GoDriveLog implementation behaviour only.
+This file records current GoGauges implementation behaviour only.
 
 It does not:
 - record implementation status;

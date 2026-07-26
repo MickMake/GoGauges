@@ -14,13 +14,13 @@ import (
 	"strings"
 	"time"
 
-	v3assets "github.com/MickMake/GoDriveLog/internal/assets"
-	"github.com/MickMake/GoDriveLog/internal/config/v3config"
-	"github.com/MickMake/GoDriveLog/internal/dashboard/gauges"
-	v3harness "github.com/MickMake/GoDriveLog/internal/dashboard/harness"
+	v3assets "github.com/MickMake/GoGauges/internal/assets"
+	"github.com/MickMake/GoGauges/internal/config/v3config"
+	"github.com/MickMake/GoGauges/internal/dashboard/gauges"
+	v3harness "github.com/MickMake/GoGauges/internal/dashboard/harness"
 )
 
-const dashboardConfigEnvVar = "GODRIVELOG_CONFIG_PATH"
+const dashboardConfigEnvVar = "GOGAUGES_CONFIG_PATH"
 
 const (
 	frameworkSmokeTheme = "framework-smoke"
@@ -135,7 +135,7 @@ func buildDashboardOverview(configPath string) (string, error) {
 	}
 
 	var b strings.Builder
-	fmt.Fprintln(&b, "GoDriveLog dashboard overview")
+	fmt.Fprintln(&b, "GoGauges dashboard overview")
 	fmt.Fprintln(&b)
 	fmt.Fprintf(&b, "Resolved config: %s\n", absoluteConfigPath)
 	fmt.Fprintln(&b, "Vehicles:")
@@ -572,7 +572,7 @@ func discoverDashboardSelection(vehicleID string) (dashboardSelection, error) {
 		return dashboardSelection{}, err
 	}
 	if len(paths) == 0 {
-		return dashboardSelection{}, fmt.Errorf("no dashboard config files found in the current directory or /etc/godrivelog")
+		return dashboardSelection{}, fmt.Errorf("no dashboard config files found in the current directory or /etc/gogauges")
 	}
 
 	records := make([]searchedConfigRecord, 0, len(paths))
@@ -603,7 +603,7 @@ func discoverDashboardSelection(vehicleID string) (dashboardSelection, error) {
 		}
 		return dashboardSelection{}, fmt.Errorf("vehicle %q was not found in searched config files: %s", vehicleID, formatSearchedConfigRecords(records))
 	}
-	return dashboardSelection{}, fmt.Errorf("no valid single-vehicle dashboard config files were discovered in the current directory or /etc/godrivelog")
+	return dashboardSelection{}, fmt.Errorf("no valid single-vehicle dashboard config files were discovered in the current directory or /etc/gogauges")
 }
 
 func discoverDashboardConfigForValidation() (string, error) {
@@ -612,7 +612,7 @@ func discoverDashboardConfigForValidation() (string, error) {
 		return "", err
 	}
 	if len(paths) == 0 {
-		return "", fmt.Errorf("no dashboard config files found in the current directory or /etc/godrivelog")
+		return "", fmt.Errorf("no dashboard config files found in the current directory or /etc/gogauges")
 	}
 
 	for _, path := range paths {
@@ -620,7 +620,7 @@ func discoverDashboardConfigForValidation() (string, error) {
 			return path, nil
 		}
 	}
-	return "", fmt.Errorf("no valid dashboard config files were discovered in the current directory or /etc/godrivelog")
+	return "", fmt.Errorf("no valid dashboard config files were discovered in the current directory or /etc/gogauges")
 }
 
 func discoverDashboardConfigPaths() ([]string, error) {
@@ -630,7 +630,7 @@ func discoverDashboardConfigPaths() ([]string, error) {
 			return nil, err
 		}
 	}
-	if err := appendDashboardConfigPaths("/etc/godrivelog", true, &paths); err != nil {
+	if err := appendDashboardConfigPaths("/etc/gogauges", true, &paths); err != nil {
 		return nil, err
 	}
 	return paths, nil
@@ -668,7 +668,7 @@ func appendDashboardConfigPaths(root string, recursive bool, paths *[]string) er
 
 func isDashboardConfigCandidate(name string) bool {
 	switch name {
-	case "godrivelog.yaml", "godrivelog.yml", "dashboard.yaml", "dashboard.yml", "config.yaml", "config.yml":
+	case "gogauges.yaml", "gogauges.yml", "dashboard.yaml", "dashboard.yml", "config.yaml", "config.yml":
 		return true
 	default:
 		return false
@@ -942,24 +942,24 @@ func newDashboardFlagSet(name string) *flag.FlagSet {
 }
 
 func writeRootHelp(w io.Writer) {
-	fmt.Fprintln(w, "GoDriveLog command line")
+	fmt.Fprintln(w, "GoGauges command line")
 	fmt.Fprintln(w)
 	fmt.Fprintln(w, "Commands:")
 	fmt.Fprintln(w, "  dashboard   Run dashboard-scoped commands for the active v3 Ebiten tooling")
 	fmt.Fprintln(w)
 	fmt.Fprintln(w, "Example:")
-	fmt.Fprintln(w, "  GoDriveLog dashboard harness vw_caddy --config ./examples/baseline-dashboard.yaml --pattern sweep --interval 50ms --duration 60s")
+	fmt.Fprintln(w, "  GoGauges dashboard harness vw_caddy --config ./examples/baseline-dashboard.yaml --pattern sweep --interval 50ms --duration 60s")
 }
 
 func writeDashboardHelp(w io.Writer) {
-	fmt.Fprintln(w, "GoDriveLog dashboard [--config <config-file>]")
+	fmt.Fprintln(w, "GoGauges dashboard [--config <config-file>]")
 	fmt.Fprintln(w)
 	fmt.Fprintln(w, "Purpose:")
 	fmt.Fprintln(w, "  Print a compact dashboard config overview or run dashboard-scoped commands through the active v3 command tree.")
 	fmt.Fprintln(w)
 	fmt.Fprintln(w, "Flags:")
 	fmt.Fprintln(w, "  --config string")
-	fmt.Fprintln(w, "        path to a dashboard config; when omitted, search the current directory and /etc/godrivelog")
+	fmt.Fprintln(w, "        path to a dashboard config; when omitted, search the current directory and /etc/gogauges")
 	fmt.Fprintln(w)
 	fmt.Fprintln(w, "Subcommands:")
 	fmt.Fprintln(w, "  run       Start the active dashboard runtime for a selected vehicle")
@@ -969,11 +969,11 @@ func writeDashboardHelp(w io.Writer) {
 	fmt.Fprintln(w, "  validate  Validate a dashboard config file")
 	fmt.Fprintln(w)
 	fmt.Fprintln(w, "Example:")
-	fmt.Fprintln(w, "  GoDriveLog dashboard --config ./examples/baseline-dashboard.yaml")
+	fmt.Fprintln(w, "  GoGauges dashboard --config ./examples/baseline-dashboard.yaml")
 }
 
 func writeDashboardRunHelp(w io.Writer) {
-	fmt.Fprintln(w, "GoDriveLog dashboard run [vehicle-id]")
+	fmt.Fprintln(w, "GoGauges dashboard run [vehicle-id]")
 	fmt.Fprintln(w)
 	fmt.Fprintln(w, "Purpose:")
 	fmt.Fprintln(w, "  Start the active dashboard runtime for the selected vehicle.")
@@ -983,18 +983,18 @@ func writeDashboardRunHelp(w io.Writer) {
 	fmt.Fprintln(w)
 	fmt.Fprintln(w, "Flags:")
 	fmt.Fprintln(w, "  --config string")
-	fmt.Fprintln(w, "        path to a dashboard config; when omitted, search the current directory and /etc/godrivelog")
+	fmt.Fprintln(w, "        path to a dashboard config; when omitted, search the current directory and /etc/gogauges")
 	fmt.Fprintln(w, "  --renderer string")
 	fmt.Fprintf(w, "        dashboard renderer backend (default %q)\n", v3RendererEbiten)
 	fmt.Fprintln(w, "  --duration duration")
 	fmt.Fprintln(w, "        optional runtime duration such as 60s; zero runs until interrupted (default 0s)")
 	fmt.Fprintln(w)
 	fmt.Fprintln(w, "Example:")
-	fmt.Fprintln(w, "  GoDriveLog dashboard run vw_caddy --config ./examples/baseline-dashboard.yaml --renderer ebiten")
+	fmt.Fprintln(w, "  GoGauges dashboard run vw_caddy --config ./examples/baseline-dashboard.yaml --renderer ebiten")
 }
 
 func writeDashboardHarnessHelp(w io.Writer) {
-	fmt.Fprintln(w, "GoDriveLog dashboard harness [vehicle-id]")
+	fmt.Fprintln(w, "GoGauges dashboard harness [vehicle-id]")
 	fmt.Fprintln(w)
 	fmt.Fprintln(w, "Purpose:")
 	fmt.Fprintln(w, "  Run the dashboard harness through the active command tree without OBD hardware.")
@@ -1004,7 +1004,7 @@ func writeDashboardHarnessHelp(w io.Writer) {
 	fmt.Fprintln(w)
 	fmt.Fprintln(w, "Flags:")
 	fmt.Fprintln(w, "  --config string")
-	fmt.Fprintln(w, "        path to a dashboard config; when omitted, search the current directory and /etc/godrivelog")
+	fmt.Fprintln(w, "        path to a dashboard config; when omitted, search the current directory and /etc/gogauges")
 	fmt.Fprintln(w, "  --pattern string")
 	fmt.Fprintf(w, "        harness pattern: %s, %s, or %s (default %q)\n", v3harness.PatternSweep, v3harness.PatternHeartbeat, v3harness.PatternFixed, v3harness.PatternSweep)
 	fmt.Fprintln(w, "  --interval duration")
@@ -1015,11 +1015,11 @@ func writeDashboardHarnessHelp(w io.Writer) {
 	fmt.Fprintf(w, "        dashboard renderer backend (default %q)\n", v3RendererEbiten)
 	fmt.Fprintln(w)
 	fmt.Fprintln(w, "Example:")
-	fmt.Fprintln(w, "  GoDriveLog dashboard harness vw_caddy --config ./examples/baseline-dashboard.yaml --pattern sweep --interval 50ms --duration 60s --renderer ebiten")
+	fmt.Fprintln(w, "  GoGauges dashboard harness vw_caddy --config ./examples/baseline-dashboard.yaml --pattern sweep --interval 50ms --duration 60s --renderer ebiten")
 }
 
 func writeDashboardExamplesHelp(w io.Writer) {
-	fmt.Fprintln(w, "GoDriveLog dashboard examples --output <directory>")
+	fmt.Fprintln(w, "GoGauges dashboard examples --output <directory>")
 	fmt.Fprintln(w)
 	fmt.Fprintln(w, "Purpose:")
 	fmt.Fprintln(w, "  Export a self-contained generated example dashboard with dashboard.yaml and assets/ at the output root.")
@@ -1037,11 +1037,11 @@ func writeDashboardExamplesHelp(w io.Writer) {
 	fmt.Fprintln(w, "        replace an existing non-empty output directory")
 	fmt.Fprintln(w)
 	fmt.Fprintln(w, "Example:")
-	fmt.Fprintln(w, "  GoDriveLog dashboard examples --theme framework-smoke --output ./tmp/framework-smoke")
+	fmt.Fprintln(w, "  GoGauges dashboard examples --theme framework-smoke --output ./tmp/framework-smoke")
 }
 
 func writeDashboardPreviewHelp(w io.Writer) {
-	fmt.Fprintln(w, "GoDriveLog dashboard preview <file>")
+	fmt.Fprintln(w, "GoGauges dashboard preview <file>")
 	fmt.Fprintln(w)
 	fmt.Fprintln(w, "Purpose:")
 	fmt.Fprintln(w, "  Open one normal preview YAML file and interactively inspect a single gauge.")
@@ -1066,11 +1066,11 @@ func writeDashboardPreviewHelp(w io.Writer) {
 	fmt.Fprintln(w, "  R=midpoint  Space=replay last transition  Esc/Q=quit")
 	fmt.Fprintln(w)
 	fmt.Fprintln(w, "Example:")
-	fmt.Fprintln(w, "  GoDriveLog dashboard preview ./examples/gauge-realism/radial/00-baseline.yaml")
+	fmt.Fprintln(w, "  GoGauges dashboard preview ./examples/gauge-realism/radial/00-baseline.yaml")
 }
 
 func writeDashboardValidateHelp(w io.Writer) {
-	fmt.Fprintln(w, "GoDriveLog dashboard validate [config-file]")
+	fmt.Fprintln(w, "GoGauges dashboard validate [config-file]")
 	fmt.Fprintln(w)
 	fmt.Fprintln(w, "Purpose:")
 	fmt.Fprintln(w, "  Validate a dashboard config using the active config parser and validation helpers.")
@@ -1083,5 +1083,5 @@ func writeDashboardValidateHelp(w io.Writer) {
 	fmt.Fprintln(w, "        path to a dashboard config; must not be combined with a positional config file")
 	fmt.Fprintln(w)
 	fmt.Fprintln(w, "Example:")
-	fmt.Fprintln(w, "  GoDriveLog dashboard validate ./examples/baseline-dashboard.yaml")
+	fmt.Fprintln(w, "  GoGauges dashboard validate ./examples/baseline-dashboard.yaml")
 }

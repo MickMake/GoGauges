@@ -1,11 +1,11 @@
-# GoDriveLog v3.2 dashboard baseline verification config
+# GoGauges v3.2 dashboard baseline verification config
 #
 # Purpose:
 #   Exercise the realistic v3.2 gauge workload through the normal dashboard
 #   harness path without adding renderer-specific behaviour.
 #
 # Usage:
-#   go run ./cmd/GoDriveLog --harness --config ./docs/v3.2/baseline-dashboard.yaml --vehicle vw_caddy --pattern sweep --interval 50ms
+#   go run ./cmd/GoGauges --harness --config ./docs/v3.2/baseline-dashboard.yaml --vehicle vw_caddy --pattern sweep --interval 50ms
 
 vehicles:
   vw_caddy:
@@ -45,7 +45,7 @@ sensors:
 
 logs:
   jsonl:
-    path: "logs/godrivelog-v3.2-baseline.jsonl"
+    path: "logs/gogauges-v3.2-baseline.jsonl"
     sensors:
       - coolant_temperature
       - speed

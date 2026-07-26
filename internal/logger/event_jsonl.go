@@ -10,8 +10,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MickMake/GoDriveLog/internal/config/v3config"
-	"github.com/MickMake/GoDriveLog/internal/sensors"
+	"github.com/MickMake/GoGauges/internal/config/v3config"
+	"github.com/MickMake/GoGauges/internal/sensors"
 )
 
 // JSONLEventRecord is the v3 JSON Lines representation of a sensor event.

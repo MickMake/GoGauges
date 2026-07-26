@@ -8,9 +8,9 @@ Area: `tools/converters`, import/export architecture
 
 Effort: 3-6 Codex hours
 
-Keep foreign-format conversion outside GoDriveLog core runtime.
+Keep foreign-format conversion outside GoGauges core runtime.
 
-Converters should live under `tools/converters` and convert external telemetry/log formats into canonical GoDriveLog event logs.
+Converters should live under `tools/converters` and convert external telemetry/log formats into canonical GoGauges event logs.
 
 ## Proposed layout
 
@@ -25,7 +25,7 @@ tools/
 
 ## Rules
 
-- GoDriveLog core should understand GoDriveLog event logs, not every external telemetry format.
+- GoGauges core should understand GoGauges event logs, not every external telemetry format.
 - Foreign formats convert into `.gdl.jsonl` plus optional `.gdl.meta.json`.
 - Converters may understand CSV, RaceChrono, Torque Pro, decoded CAN CSV, racing datasets, or other third-party formats.
 - Converter-specific mapping files are allowed and encouraged.

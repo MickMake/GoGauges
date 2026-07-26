@@ -1,4 +1,4 @@
-# GoDriveLog v3 config Go structs
+# GoGauges v3 config Go structs
 
 Status: draft alignment document  
 Schema target: v3 simplified runtime/config boundaries  
@@ -412,7 +412,7 @@ type ImageSetConfig struct {
 ```yaml
 logs:
   jsonl:
-    path: "logs/godrivelog.jsonl"
+    path: "logs/gogauges.jsonl"
     sensors:
       - speed
       - rpm

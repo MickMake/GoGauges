@@ -66,7 +66,7 @@ odometer/99-all-options.yaml
 Gauge Preview Mode is launched with:
 
 ```text
-godrivelog dashboard preview <file>
+gogauges dashboard preview <file>
 ```
 
 `<file>` is mandatory and must point to a normal dashboard/gauge YAML file.

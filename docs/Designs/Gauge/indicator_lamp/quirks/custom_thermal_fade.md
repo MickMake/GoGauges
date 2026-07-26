@@ -4,18 +4,18 @@
 
 | Field | Value |
 |---|---|
-| Old GoDriveLog type | `indicator` |
+| Old GoGauges type | `indicator` |
 | Old realism key | `realism.thermal_fade` |
 | New Gauge group | `indicator_lamp` |
 | Paired custom gauge design | `docs/Designs/Gauge/indicator_lamp/gauges/custom_indicator.md` |
-| Documentation role | Custom current GoDriveLog quirk design |
+| Documentation role | Custom current GoGauges quirk design |
 | Runtime code impact | None |
 
 ## Design intent
 
 This quirk makes an indicator lamp fade in or fade out as if the visible element has thermal inertia.
 
-For the current GoDriveLog `indicator` gauge, the behaviour applies to displayed lamp brightness only. It must not alter the input sensor value, configured thresholds, exported values, or logs.
+For the current GoGauges `indicator` gauge, the behaviour applies to displayed lamp brightness only. It must not alter the input sensor value, configured thresholds, exported values, or logs.
 
 ## Physical mechanism being imitated
 
@@ -37,9 +37,9 @@ The indicator flickers, pulses, randomly changes brightness, or remains partly o
 
 ## Gauge-family boundary
 
-This custom quirk belongs to the current GoDriveLog `indicator` renderer and is documented under the `indicator_lamp` Gauge group.
+This custom quirk belongs to the current GoGauges `indicator` renderer and is documented under the `indicator_lamp` Gauge group.
 
-It is not a generic definition of every illuminated display or electrical failure mode. Generic physical gauge catalogue quirks remain separate from current GoDriveLog custom behaviour.
+It is not a generic definition of every illuminated display or electrical failure mode. Generic physical gauge catalogue quirks remain separate from current GoGauges custom behaviour.
 
 ## Constraints
 
@@ -51,7 +51,7 @@ This is not random flicker, bloom, lens dirt, weak bulb tint, ageing, power brow
 
 ## Documentation boundary
 
-This file documents the current GoDriveLog custom quirk design only.
+This file documents the current GoGauges custom quirk design only.
 
 It does not:
 - rename the runtime gauge type;

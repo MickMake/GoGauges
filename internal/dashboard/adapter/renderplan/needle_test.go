@@ -3,8 +3,8 @@ package renderplan
 import (
 	"testing"
 
-	v3gauges "github.com/MickMake/GoDriveLog/internal/dashboard/gauges"
-	"github.com/MickMake/GoDriveLog/internal/dashboard/v3dashboard"
+	v3gauges "github.com/MickMake/GoGauges/internal/dashboard/gauges"
+	"github.com/MickMake/GoGauges/internal/dashboard/v3dashboard"
 )
 
 func TestBuildNeedleLikePartTreatsNeedleMinAsRotatingNeedlePart(t *testing.T) {

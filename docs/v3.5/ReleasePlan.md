@@ -256,7 +256,7 @@ It loads one normal dashboard/gauge YAML file, renders one gauge, and lets the u
 CLI:
 
 ```text
-godrivelog dashboard preview <file>
+gogauges dashboard preview <file>
 ```
 
 `<file>` is mandatory and must point to a normal dashboard/gauge YAML file.

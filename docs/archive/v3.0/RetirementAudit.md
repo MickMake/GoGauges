@@ -1,4 +1,4 @@
-# GoDriveLog v3 retirement audit
+# GoGauges v3 retirement audit
 
 Status: implementation slice output  
 Target version: `v3.0.11`  
@@ -43,7 +43,7 @@ Planning docs:
 
 Old/current paths:
 
-- `cmd/GoDriveLog/main.go`
+- `cmd/GoGauges/main.go`
 - `internal/config/config.go`
 - `internal/config/runtime.go`
 - `internal/config/dashboard.go`
@@ -68,7 +68,7 @@ v3 foundation paths:
 | Area | Old/current path | v3 path | Recommendation | Confidence | Removal condition |
 |---|---|---|---|---|---|
 | Config root | `internal/config/config.go` | `internal/config/v3config/` | Remove or archive later | High | Active CLI uses v3 config and old root keys are no longer supported |
-| Runtime orchestration | `cmd/GoDriveLog/main.go` | v3 resolve + endpoint + sensors + subscribers | Replace later | High | A v3 entrypoint can run the selected vehicle pipeline |
+| Runtime orchestration | `cmd/GoGauges/main.go` | v3 resolve + endpoint + sensors + subscribers | Replace later | High | A v3 entrypoint can run the selected vehicle pipeline |
 | Runtime sensor selection | `internal/config/runtime.go` | `v3config.Resolve` + `sensors.NewPollingRuntime` | Remove later | High | No active code uses `sensor.log` to decide polling |
 | Old dashboard schema | `internal/config/dashboard.go` | v3 dashboard widgets/assets | Archive or remove later | High | Old block/layer config is no longer loaded by the active app |
 | Old daily JSONL writer | `internal/logger/jsonl.go` | `internal/logger/event_jsonl.go` | Keep temporarily | Medium | v3 event logging is active and the date-rotation decision is settled |
@@ -111,7 +111,7 @@ Recommendation: archive or remove later, after v3 UI/display work is useful and 
 
 Risk: useful visual design knowledge may disappear before it is translated into v3 widgets or docs.
 
-### `cmd/GoDriveLog/main.go`
+### `cmd/GoGauges/main.go`
 
 Current role: wires the old app path: old config, old logger, old reader branching, old per-sensor goroutines, and old ticker-driven Fyne dashboard.
 
@@ -212,7 +212,7 @@ These are either v3 implementation paths or reused behaviour behind v3 seams.
 1. Should daily JSONL rotation survive in v3, or is a configured exact JSONL path enough?
 2. Should old dashboard visual examples be archived under `docs/archive`, or deleted after v3 equivalents exist?
 3. Should the old Fyne renderer caching strategy become the basis for the v3 renderer adapter?
-4. Should the first v3.1.0 runtime keep the same `cmd/GoDriveLog` command name, or introduce a separate command until v3 is proven?
+4. Should the first v3.1.0 runtime keep the same `cmd/GoGauges` command name, or introduce a separate command until v3 is proven?
 5. Are any old decoder behaviours still wanted as first-class v3 widgets?
 
 ## 10. Explicit non-goals

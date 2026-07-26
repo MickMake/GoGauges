@@ -1,4 +1,4 @@
-# GoDriveLog v3.3 performance runs
+# GoGauges v3.3 performance runs
 
 Status: active v3.3 renderer evidence
 
@@ -6,7 +6,7 @@ Status: active v3.3 renderer evidence
 
 This file records renderer and baseline-dashboard performance evidence for the v3.3 renderer decision.
 
-The goal is not to chase synthetic benchmark trophies. The goal is to answer a practical question: can the selected renderer make the real GoDriveLog dashboard usable on the target class of hardware?
+The goal is not to chase synthetic benchmark trophies. The goal is to answer a practical question: can the selected renderer make the real GoGauges dashboard usable on the target class of hardware?
 
 ## Renderer decision evidence
 

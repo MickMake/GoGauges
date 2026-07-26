@@ -4,14 +4,14 @@
 
 | Field | Value |
 |---|---|
-| Old GoDriveLog type | `indicator` |
+| Old GoGauges type | `indicator` |
 | New Gauge group | `indicator_lamp` |
-| Documentation role | Custom current GoDriveLog gauge design |
+| Documentation role | Custom current GoGauges gauge design |
 | Runtime code impact | None |
 
 ## Design intent
 
-The GoDriveLog `indicator` gauge is a two-state image-selection gauge. It displays an off or on state according to the current sensor value and sensor validity.
+The GoGauges `indicator` gauge is a two-state image-selection gauge. It displays an off or on state according to the current sensor value and sensor validity.
 
 It maps best to the `indicator_lamp` Gauge group because the common physical expression is a lamp, illuminated legend, warning tell-tale, or simple state indicator. The implementation itself remains asset-driven and does not require the artwork to literally be a lamp.
 
@@ -39,7 +39,7 @@ Thermal fade, uneven brightness, warm-up, power lifecycle, blinking, and lamp ag
 
 ## Documentation boundary
 
-This file documents the current GoDriveLog custom gauge design only.
+This file documents the current GoGauges custom gauge design only.
 
 It does not:
 - rename the runtime gauge type;

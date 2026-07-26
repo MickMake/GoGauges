@@ -1,4 +1,4 @@
-# GoDriveLog gauge package examples
+# GoGauges gauge package examples
 
 Version: 0.1
 

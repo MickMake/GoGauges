@@ -4,16 +4,16 @@
 
 | Field | Value |
 |---|---|
-| Old GoDriveLog type | `radial` |
+| Old GoGauges type | `radial` |
 | Old realism key | `realism.pointer_markers` |
 | New Gauge group | `radial_pointer` |
 | Paired custom gauge design | `docs/Designs/Gauge/radial_pointer/gauges/custom_radial.md` |
-| Documentation role | Custom current GoDriveLog quirk design |
+| Documentation role | Custom current GoGauges quirk design |
 | Runtime code impact | None |
 
 ## Naming note
 
-This documentation uses `pointer_markers` as the current GoDriveLog realism key.
+This documentation uses `pointer_markers` as the current GoGauges realism key.
 
 The same behaviour is also referred to as **witness markers** in older realism/design notes. Within this custom Gauge documentation set, **pointer markers** and **witness markers** are interchangeable names for the same current behaviour unless a document explicitly says otherwise.
 
@@ -21,7 +21,7 @@ The same behaviour is also referred to as **witness markers** in older realism/d
 
 This quirk displays retained marker state associated with the gauge reading, such as a minimum, maximum, follower, tell-tale, or damped secondary pointer position.
 
-For the current GoDriveLog `radial` gauge, the behaviour applies to displayed pointer position or angle only. It must not alter the input sensor value, configured ranges, exported values, or logs.
+For the current GoGauges `radial` gauge, the behaviour applies to displayed pointer position or angle only. It must not alter the input sensor value, configured ranges, exported values, or logs.
 
 Pointer markers are instrument-realism features, not statistical overlays.
 
@@ -61,7 +61,7 @@ For radial gauges, these are extra needle-like markers that share the gauge's po
 
 Pointer markers observe the gauge's final rendered indicator position.
 
-For the current GoDriveLog `radial` gauge, that means the final rendered needle angle after value mapping and any enabled display-only realism effects.
+For the current GoGauges `radial` gauge, that means the final rendered needle angle after value mapping and any enabled display-only realism effects.
 
 If no realism effects are enabled, that rendered indicator path is equivalent to the mapped source value. If realism effects are enabled, pointer markers follow the realistic rendered behaviour. For example, a radial max marker may capture visible overshoot if the live pointer overshoots.
 
@@ -141,9 +141,9 @@ The markers look like UI analytics, chart annotations, database-backed statistic
 
 ## Gauge-family boundary
 
-This custom quirk belongs to the current GoDriveLog `radial` renderer and is documented under the `radial_pointer` Gauge group.
+This custom quirk belongs to the current GoGauges `radial` renderer and is documented under the `radial_pointer` Gauge group.
 
-It is not a generic definition of every mechanical witness pointer, tell-tale, min/max register, or statistical marker. Generic physical gauge catalogue quirks remain separate from current GoDriveLog custom behaviour.
+It is not a generic definition of every mechanical witness pointer, tell-tale, min/max register, or statistical marker. Generic physical gauge catalogue quirks remain separate from current GoGauges custom behaviour.
 
 ## Constraints
 
@@ -157,7 +157,7 @@ This is not `stat_markers`, automatic statistical analysis, logging summary outp
 
 ## Documentation boundary
 
-This file documents the current GoDriveLog custom quirk design only.
+This file documents the current GoGauges custom quirk design only.
 
 It does not:
 

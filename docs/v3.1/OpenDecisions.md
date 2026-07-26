@@ -1,4 +1,4 @@
-# GoDriveLog v3.1 open decisions
+# GoGauges v3.1 open decisions
 
 Status: implementation
 Owner: migration implementor

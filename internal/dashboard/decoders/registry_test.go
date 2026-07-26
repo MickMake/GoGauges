@@ -3,8 +3,8 @@ package decoders
 import (
 	"testing"
 
-	"github.com/MickMake/GoDriveLog/internal/config"
-	"github.com/MickMake/GoDriveLog/internal/sensors"
+	"github.com/MickMake/GoGauges/internal/config"
+	"github.com/MickMake/GoGauges/internal/sensors"
 )
 
 func TestExecuteDecoderTypes(t *testing.T) {

@@ -12,7 +12,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/MickMake/GoDriveLog/internal/config/v3config"
+	"github.com/MickMake/GoGauges/internal/config/v3config"
 )
 
 const (
@@ -88,8 +88,8 @@ type ImageAsset struct {
 //  2. current working directory / vehicle ID
 //  3. config directory
 //  4. current working directory
-//  5. /etc/godrivelog
-//  6. /usr/local/etc/godrivelog
+//  5. /etc/gogauges
+//  6. /usr/local/etc/gogauges
 
 func DefaultSearchPaths(configPath, vehicleID string) ([]string, error) {
 	configDir := "."
@@ -113,8 +113,8 @@ func DefaultSearchPaths(configPath, vehicleID string) ([]string, error) {
 	candidates = append(candidates,
 		configDir,
 		pwd,
-		"/etc/godrivelog",
-		"/usr/local/etc/godrivelog",
+		"/etc/gogauges",
+		"/usr/local/etc/gogauges",
 	)
 	return cleanSearchPaths(candidates)
 }

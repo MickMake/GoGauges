@@ -12,12 +12,12 @@ import (
 	"strings"
 	"time"
 
-	v3assets "github.com/MickMake/GoDriveLog/internal/assets"
-	"github.com/MickMake/GoDriveLog/internal/config/v3config"
-	v3ebitenadapter "github.com/MickMake/GoDriveLog/internal/dashboard/adapter/ebiten"
-	v3gauges "github.com/MickMake/GoDriveLog/internal/dashboard/gauges"
-	"github.com/MickMake/GoDriveLog/internal/dashboard/v3dashboard"
-	"github.com/MickMake/GoDriveLog/internal/sensors"
+	v3assets "github.com/MickMake/GoGauges/internal/assets"
+	"github.com/MickMake/GoGauges/internal/config/v3config"
+	v3ebitenadapter "github.com/MickMake/GoGauges/internal/dashboard/adapter/ebiten"
+	v3gauges "github.com/MickMake/GoGauges/internal/dashboard/gauges"
+	"github.com/MickMake/GoGauges/internal/dashboard/v3dashboard"
+	"github.com/MickMake/GoGauges/internal/sensors"
 	ebitenui "github.com/hajimehoshi/ebiten/v2"
 	"github.com/hajimehoshi/ebiten/v2/inpututil"
 	"gopkg.in/yaml.v3"
@@ -209,7 +209,7 @@ func LoadGaugePreviewFile(path string, gaugeID string) (GaugePreviewSpec, error)
 
 	return GaugePreviewSpec{
 		Runtime:       runtime,
-		Title:         fmt.Sprintf("GoDriveLog preview - %s", previewGaugeLabel(candidate)),
+		Title:         fmt.Sprintf("GoGauges preview - %s", previewGaugeLabel(candidate)),
 		SensorID:      pkg.Sensor,
 		Unit:          sensorCfg.Unit,
 		Min:           minValue,

@@ -4,18 +4,18 @@
 
 | Field | Value |
 |---|---|
-| Old GoDriveLog type | `odometer` |
+| Old GoGauges type | `odometer` |
 | Old realism key | `realism.carry_drag` |
 | New Gauge group | `rolling_drum_or_counter` |
 | Paired custom gauge design | `docs/Designs/Gauge/rolling_drum_or_counter/gauges/custom_odometer.md` |
-| Documentation role | Custom current GoDriveLog quirk design |
+| Documentation role | Custom current GoGauges quirk design |
 | Runtime code impact | None |
 
 ## Design intent
 
 This quirk represents rollover coupling where a lower odometer drum begins to drag the next higher drum as the lower digit approaches carry.
 
-For the current GoDriveLog `odometer` gauge, the behaviour applies to displayed wheel or strip state only. It must not alter input sensor values, configured ranges, exported values, or logs.
+For the current GoGauges `odometer` gauge, the behaviour applies to displayed wheel or strip state only. It must not alter input sensor values, configured ranges, exported values, or logs.
 
 ## Physical mechanism being imitated
 
@@ -37,9 +37,9 @@ The higher digit moves too early, moves too far, or appears to change value befo
 
 ## Gauge-family boundary
 
-This custom quirk belongs to the current GoDriveLog `odometer` renderer and is documented under the `rolling_drum_or_counter` Gauge group.
+This custom quirk belongs to the current GoGauges `odometer` renderer and is documented under the `rolling_drum_or_counter` Gauge group.
 
-It is not a generic definition of every rolling-drum mechanism. Generic physical gauge catalogue quirks remain separate from current GoDriveLog custom behaviour.
+It is not a generic definition of every rolling-drum mechanism. Generic physical gauge catalogue quirks remain separate from current GoGauges custom behaviour.
 
 ## Constraints
 
@@ -51,7 +51,7 @@ This is not backlash, free gear play, arbitrary per-digit lag, or independent wh
 
 ## Documentation boundary
 
-This file documents the current GoDriveLog custom odometer quirk design only.
+This file documents the current GoGauges custom odometer quirk design only.
 
 It does not:
 - rename the runtime gauge type;

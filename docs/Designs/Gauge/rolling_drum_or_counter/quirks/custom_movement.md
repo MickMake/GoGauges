@@ -4,16 +4,16 @@
 
 | Field | Value |
 |---|---|
-| Old GoDriveLog type | `odometer` |
+| Old GoGauges type | `odometer` |
 | Old configuration field | `odometer.movement` |
 | New Gauge group | `rolling_drum_or_counter` |
 | Paired custom gauge design | `docs/Designs/Gauge/rolling_drum_or_counter/gauges/custom_odometer.md` |
-| Documentation role | Custom current GoDriveLog quirk design |
+| Documentation role | Custom current GoGauges quirk design |
 | Runtime code impact | None |
 
 ## Naming note
 
-This document uses `movement` for odometers because current GoDriveLog treats `odometer.movement` as the odometer wheel movement surface.
+This document uses `movement` for odometers because current GoGauges treats `odometer.movement` as the odometer wheel movement surface.
 
 Do not collapse this into `realism.movement_policy`. The v3.5 design explicitly treats `realism.movement_policy` as obsolete for odometer movement.
 
@@ -21,7 +21,7 @@ Do not collapse this into `realism.movement_policy`. The v3.5 design explicitly 
 
 This quirk controls how odometer number wheels transition from an old displayed value to a new displayed value.
 
-For the current GoDriveLog `odometer` gauge, the behaviour applies to displayed wheel motion only. It must not alter the input sensor value, configured range, exported values, or logs.
+For the current GoGauges `odometer` gauge, the behaviour applies to displayed wheel motion only. It must not alter the input sensor value, configured range, exported values, or logs.
 
 ## Expected visible behaviour
 
@@ -31,7 +31,7 @@ The movement model remains display-only and should settle to a stable displayed 
 
 ## Gauge-family boundary
 
-This custom quirk belongs to the current GoDriveLog `odometer` renderer and is documented under the `rolling_drum_or_counter` Gauge group.
+This custom quirk belongs to the current GoGauges `odometer` renderer and is documented under the `rolling_drum_or_counter` Gauge group.
 
 It is not a generic definition of every rolling drum, mechanical counter, gear train, detent, backlash, or carry mechanism. Those remain separate quirks or future candidates.
 
@@ -45,7 +45,7 @@ This is not drum slop, carry drag, wraparound, snap settle, backlash, random vib
 
 ## Documentation boundary
 
-This file documents the current GoDriveLog custom quirk design only.
+This file documents the current GoGauges custom quirk design only.
 
 It does not:
 - rename the runtime gauge type;

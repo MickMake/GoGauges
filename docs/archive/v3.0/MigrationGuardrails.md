@@ -1,4 +1,4 @@
-# GoDriveLog v3 migration guardrails
+# GoGauges v3 migration guardrails
 
 Status: transition guidance  
 Applies to: moving the current codebase toward the v3 docs  

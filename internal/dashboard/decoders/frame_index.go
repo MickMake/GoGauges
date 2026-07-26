@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/MickMake/GoDriveLog/internal/config"
+	"github.com/MickMake/GoGauges/internal/config"
 )
 
 func decodeFrameIndex(decoder config.DashboardDecoderConfig, inputs Inputs) (Value, error) {

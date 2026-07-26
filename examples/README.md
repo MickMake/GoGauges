@@ -1,6 +1,6 @@
-# GoDriveLog dashboard examples
+# GoGauges dashboard examples
 
-These are active GoDriveLog dashboard examples, not versioned planning confetti. Every runnable fixture in this directory should validate against the current v3 config/runtime path.
+These are active GoGauges dashboard examples, not versioned planning confetti. Every runnable fixture in this directory should validate against the current v3 config/runtime path.
 
 Asset paths are repository-root relative.
 

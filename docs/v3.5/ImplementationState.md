@@ -50,7 +50,7 @@ The final v3.5 tail also includes two small radial-only display refinements that
 - Do not expose `movement.pre`, `movement.primary`, or `movement.post` unless a later docs slice explicitly changes the public config model.
 - `docs/v3.5/RealismBehaviourGuide.md` defines the intended visual feel of each realism option.
 - Gauge Preview Mode is the simple visual viewer for one gauge at a time.
-- Gauge Preview Mode CLI is `godrivelog dashboard preview <file>`.
+- Gauge Preview Mode CLI is `gogauges dashboard preview <file>`.
 - `<file>` is mandatory and positional.
 - Preview files are normal YAML configs, not a special metadata system.
 - Each single-feature preview file should enable one realism feature only.

@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	v3assets "github.com/MickMake/GoDriveLog/internal/assets"
-	"github.com/MickMake/GoDriveLog/internal/config/v3config"
-	v3gauges "github.com/MickMake/GoDriveLog/internal/dashboard/gauges"
-	"github.com/MickMake/GoDriveLog/internal/sensors"
+	v3assets "github.com/MickMake/GoGauges/internal/assets"
+	"github.com/MickMake/GoGauges/internal/config/v3config"
+	v3gauges "github.com/MickMake/GoGauges/internal/dashboard/gauges"
+	"github.com/MickMake/GoGauges/internal/sensors"
 )
 
 func TestRuntimeLoadsGaugeWidgetPackageAndRendersSensorState(t *testing.T) {

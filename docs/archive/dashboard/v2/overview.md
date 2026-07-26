@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document describes the staged implementation plan for the GoDriveLog dashboard rewrite across the v2.x.x series.
+This document describes the staged implementation plan for the GoGauges dashboard rewrite across the v2.x.x series.
 
 The core goal is:
 
@@ -10,7 +10,7 @@ The core goal is:
 
 The old model made sensor/PID configuration own its visual presentation. The new model makes sensor data available as state, and lets a configurable dashboard scene decide how to render that state using assets, decoders, reusable blocks, layers, and conditions.
 
-No legacy compatibility is required. GoDriveLog is not in production, so the old dashboard model was removed once the new scene renderer could render a real dashboard.
+No legacy compatibility is required. GoGauges is not in production, so the old dashboard model was removed once the new scene renderer could render a real dashboard.
 
 Tiny note from the goblin department: do not build two dashboard engines and hope they remain friends. They will not.
 

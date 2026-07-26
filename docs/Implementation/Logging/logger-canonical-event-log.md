@@ -1,7 +1,7 @@
-# Canonical GoDriveLog Event Log — Implementation
+# Canonical GoGauges Event Log — Implementation
 
 ## Purpose
-Audits the current JSONL event log implementation against the design for a canonical GoDriveLog-owned event log.
+Audits the current JSONL event log implementation against the design for a canonical GoGauges-owned event log.
 
 ## Implementation Status
 Partially implemented.
@@ -50,7 +50,7 @@ Not applicable. The feature writes logs only.
 The current format is repository code, not a formally versioned product contract. No schema marker, sidecar metadata, validator, or replay reader was found.
 
 ## Deviations from Design
-The design requires a canonical `.gdl.jsonl` format that GoDriveLog writes, validates, and replays. Current code only implements the write side of a generic daily-rotated JSONL stream.
+The design requires a canonical `.gdl.jsonl` format that GoGauges writes, validates, and replays. Current code only implements the write side of a generic daily-rotated JSONL stream.
 
 ## Remaining Work
 Add a formal file contract, versioning, validator, sidecar metadata, and replay consumer if the design remains active.

@@ -10,7 +10,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/MickMake/GoDriveLog/internal/config/v3config"
+	"github.com/MickMake/GoGauges/internal/config/v3config"
 )
 
 func TestDefaultSearchPathsUsesExpectedOrder(t *testing.T) {
@@ -54,8 +54,8 @@ func TestDefaultSearchPathsUsesExpectedOrder(t *testing.T) {
 		filepath.Join(currentPwd, "test_vehicle"),
 		configRoot,
 		currentPwd,
-		"/etc/godrivelog",
-		"/usr/local/etc/godrivelog",
+		"/etc/gogauges",
+		"/usr/local/etc/gogauges",
 	}
 	if !reflect.DeepEqual(got, want) {
 		t.Fatalf("DefaultSearchPaths order = %#v, want %#v", got, want)

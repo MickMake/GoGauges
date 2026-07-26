@@ -4,18 +4,18 @@
 
 | Field | Value |
 |---|---|
-| Old GoDriveLog type | `bar` |
+| Old GoGauges type | `bar` |
 | Old realism key | `realism.hysteresis` |
 | New Gauge group | `bar_or_wedge_display` |
 | Paired custom gauge design | `docs/Designs/Gauge/bar_or_wedge_display/gauges/custom_bar.md` |
-| Documentation role | Custom current GoDriveLog quirk design |
+| Documentation role | Custom current GoGauges quirk design |
 | Runtime code impact | None |
 
 ## Design intent
 
 This quirk adds direction-dependent displayed offset so approach direction can affect the visible reading.
 
-For the current GoDriveLog `bar` gauge, the behaviour applies to the displayed level only. It must not alter the input sensor value, configured ranges, exported values, or logs.
+For the current GoGauges `bar` gauge, the behaviour applies to the displayed level only. It must not alter the input sensor value, configured ranges, exported values, or logs.
 
 ## Physical mechanism being imitated
 
@@ -50,11 +50,11 @@ Other gauge types may have related conceptual behaviour, but this file only docu
 
 ## Relationship to generic catalogue quirks
 
-This file is a GoDriveLog-specific `custom_` quirk record. Generic catalogue quirk files in the same Gauge group describe physical display families more broadly and should not be treated as current implementation documentation.
+This file is a GoGauges-specific `custom_` quirk record. Generic catalogue quirk files in the same Gauge group describe physical display families more broadly and should not be treated as current implementation documentation.
 
 ## Documentation boundary
 
-This file documents current GoDriveLog custom quirk design only.
+This file documents current GoGauges custom quirk design only.
 
 It does not:
 

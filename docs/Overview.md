@@ -2,7 +2,7 @@
 
 ## Purpose
 
-GoDriveLog is heading toward a **gauge behaviour simulation platform** rather than a growing collection of one-off gauge implementations.
+GoGauges is heading toward a **gauge behaviour simulation platform** rather than a growing collection of one-off gauge implementations.
 
 The intent is still to simulate the **physical behaviour** of gauges. What is changing is the practical method used to get there.
 
@@ -99,7 +99,7 @@ The research Markdown files are expected to be generated from JSON later. That g
 
 ### 2. Runtime design
 
-This is the code-facing design for how GoDriveLog simulates gauges.
+This is the code-facing design for how GoGauges simulates gauges.
 
 This includes:
 

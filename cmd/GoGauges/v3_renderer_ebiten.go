@@ -8,11 +8,11 @@ import (
 	"log"
 	"time"
 
-	"github.com/MickMake/GoDriveLog/internal/config/v3config"
-	v3ebitenadapter "github.com/MickMake/GoDriveLog/internal/dashboard/adapter/ebiten"
-	v3harness "github.com/MickMake/GoDriveLog/internal/dashboard/harness"
-	"github.com/MickMake/GoDriveLog/internal/dashboard/scenesink"
-	v3runtime "github.com/MickMake/GoDriveLog/internal/runtime/v3runtime"
+	"github.com/MickMake/GoGauges/internal/config/v3config"
+	v3ebitenadapter "github.com/MickMake/GoGauges/internal/dashboard/adapter/ebiten"
+	v3harness "github.com/MickMake/GoGauges/internal/dashboard/harness"
+	"github.com/MickMake/GoGauges/internal/dashboard/scenesink"
+	v3runtime "github.com/MickMake/GoGauges/internal/runtime/v3runtime"
 )
 
 const v3SceneGap = 12
@@ -60,7 +60,7 @@ func runV3EbitenCommand(configPath, vehicleID string, duration time.Duration) er
 		stop()
 	}()
 
-	runErr := adapter.Run(ctx, "GoDriveLog v3")
+	runErr := adapter.Run(ctx, "GoGauges v3")
 	stop()
 	runtimeErr := <-errCh
 	if err := ignoreContextStop(runErr); err != nil {
@@ -109,7 +109,7 @@ func runV3EbitenHarnessCommand(configPath, vehicleID, pattern string, interval t
 		stop()
 	}()
 
-	runErr := adapter.Run(ctx, "GoDriveLog v3 harness")
+	runErr := adapter.Run(ctx, "GoGauges v3 harness")
 	stop()
 	runtimeErr := <-errCh
 	if err := ignoreContextStop(runErr); err != nil {

@@ -5,9 +5,9 @@ import (
 	"testing"
 	"time"
 
-	v3assets "github.com/MickMake/GoDriveLog/internal/assets"
-	"github.com/MickMake/GoDriveLog/internal/config/v3config"
-	"github.com/MickMake/GoDriveLog/internal/sensors"
+	v3assets "github.com/MickMake/GoGauges/internal/assets"
+	"github.com/MickMake/GoGauges/internal/config/v3config"
+	"github.com/MickMake/GoGauges/internal/sensors"
 )
 
 func TestRuntimeUsesResolvedSelectedDashboardsOnly(t *testing.T) {

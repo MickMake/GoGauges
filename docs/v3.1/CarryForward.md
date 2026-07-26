@@ -1,4 +1,4 @@
-# GoDriveLog v3.1 carry-forward list
+# GoGauges v3.1 carry-forward list
 
 Status: planning
 Owner: migration implementor
@@ -35,7 +35,7 @@ v3.1 should mostly wire these pieces together into a practical app path.
 
 These old/current paths still matter because they contain runnable behaviour, display behaviour, logging behaviour, CLI/test behaviour, or useful tests:
 
-- `cmd/GoDriveLog/main.go`
+- `cmd/GoGauges/main.go`
 - `internal/config/config.go`
 - `internal/config/runtime.go`
 - `internal/logger/jsonl.go`
@@ -100,7 +100,7 @@ Minimum useful path:
 7. Connect selected dashboard output boundary.
 8. Shut down cleanly.
 
-Do not retire `cmd/GoDriveLog/main.go`, `internal/config/runtime.go`, or the old UI/runtime path until this works for at least one selected vehicle.
+Do not retire `cmd/GoGauges/main.go`, `internal/config/runtime.go`, or the old UI/runtime path until this works for at least one selected vehicle.
 
 ### Display adapter
 
@@ -184,7 +184,7 @@ v3 scene output is renderer-neutral. The display adapter should stay below the d
 
 Retire these last, or only after their replacement behaviour is actively wired and verified:
 
-1. `cmd/GoDriveLog/main.go`
+1. `cmd/GoGauges/main.go`
 2. `internal/ui/dashboard.go`
 3. `internal/dashboard/renderer/fyne/`
 4. `internal/logger/jsonl.go`, if daily rotation remains wanted

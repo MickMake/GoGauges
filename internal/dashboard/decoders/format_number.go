@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/MickMake/GoDriveLog/internal/config"
+	"github.com/MickMake/GoGauges/internal/config"
 )
 
 func decodeFormatNumber(decoder config.DashboardDecoderConfig, inputs Inputs) (Value, error) {

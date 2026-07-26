@@ -1,4 +1,4 @@
-# GoDriveLog v3.1 release plan
+# GoGauges v3.1 release plan
 
 Status: planning
 Owner: migration implementor

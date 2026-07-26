@@ -1,4 +1,4 @@
-# GoDriveLog v3.2 seven-segment gauge dashboard example
+# GoGauges v3.2 seven-segment gauge dashboard example
 
 vehicles:
   vw_caddy:
@@ -45,7 +45,7 @@ sensors:
 
 logs:
   jsonl:
-    path: "logs/godrivelog.jsonl"
+    path: "logs/gogauges.jsonl"
     sensors:
       - coolant_temperature
       - speed

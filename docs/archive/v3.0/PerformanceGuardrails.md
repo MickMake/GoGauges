@@ -1,4 +1,4 @@
-# GoDriveLog v3 performance guardrails
+# GoGauges v3 performance guardrails
 
 Status: performance guidance  
 Applies to: current display stabilisation and future v3 renderer work  

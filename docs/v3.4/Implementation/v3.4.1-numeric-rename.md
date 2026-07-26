@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Old GoDriveLog type | `numeric` |
+| Old GoGauges type | `numeric` |
 | Previous historical name | `seven_segment` |
 | New Gauge group | `segmented_display` |
 | Paired design | `docs/Designs/Gauge/segmented_display/gauges/custom_numeric.md` |
@@ -12,7 +12,7 @@
 
 ## Current implementation model
 
-The current GoDriveLog `numeric` implementation renders formatted values through image character slots.
+The current GoGauges `numeric` implementation renders formatted values through image character slots.
 
 The current code name is `numeric`. Historical documentation may still mention `seven_segment`, but active package YAML and examples use `numeric`.
 
@@ -39,7 +39,7 @@ This implementation record does not claim individual-segment rendering.
 The current mapping is:
 
 ```text
-Old GoDriveLog type: numeric
+Old GoGauges type: numeric
 New Gauge group:    segmented_display
 ```
 
@@ -48,7 +48,7 @@ Individual segment composition is a future candidate only. It must not be record
 
 ## Documentation boundary
 
-This file records current GoDriveLog implementation behaviour only.
+This file records current GoGauges implementation behaviour only.
 
 It does not:
 - record implementation status;

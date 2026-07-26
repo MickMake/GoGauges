@@ -8,7 +8,7 @@ Area: logging, replay metadata, config provenance
 
 Effort: 4-7 Codex hours
 
-Add a session metadata sidecar next to each GoDriveLog event log.
+Add a session metadata sidecar next to each GoGauges event log.
 
 The sidecar should capture enough context to replay, validate, or interpret a log later, even if the active dashboard config has changed.
 
@@ -16,7 +16,7 @@ The sidecar should capture enough context to replay, validate, or interpret a lo
 
 ```json
 {
-  "schema": "godrivelog.session.v1",
+  "schema": "gogauges.session.v1",
   "vehicle_id": "caddy",
   "vehicle_name": "VW Caddy 2019 SWB",
   "started_at": "...",

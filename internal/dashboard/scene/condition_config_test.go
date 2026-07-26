@@ -3,9 +3,9 @@ package scene
 import (
 	"testing"
 
-	"github.com/MickMake/GoDriveLog/internal/config"
-	"github.com/MickMake/GoDriveLog/internal/dashboard/decoders"
-	"github.com/MickMake/GoDriveLog/internal/sensors"
+	"github.com/MickMake/GoGauges/internal/config"
+	"github.com/MickMake/GoGauges/internal/dashboard/decoders"
+	"github.com/MickMake/GoGauges/internal/sensors"
 )
 
 func TestEvaluateConfiguredConditionFromDecoderValue(t *testing.T) {

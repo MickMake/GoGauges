@@ -7,7 +7,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/MickMake/GoDriveLog/internal/assets/examplegen"
+	"github.com/MickMake/GoGauges/internal/assets/examplegen"
 )
 
 var ornatePalette = struct {

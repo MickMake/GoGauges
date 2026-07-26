@@ -1,4 +1,4 @@
-# GoDriveLog v3.1
+# GoGauges v3.1
 
 Planning documents for the v3.1 implementation series.
 

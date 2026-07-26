@@ -1,4 +1,4 @@
-# GoDriveLog v3 working-code inventory and seam plan
+# GoGauges v3 working-code inventory and seam plan
 
 Status: implementation slice output  
 Target version: `v3.0.0`  
@@ -36,7 +36,7 @@ Planning and guardrail docs:
 
 Current implementation files:
 
-- `cmd/GoDriveLog/main.go`
+- `cmd/GoGauges/main.go`
 - `internal/config/config.go`
 - `internal/config/runtime.go`
 - `internal/config/dashboard.go`
@@ -119,7 +119,7 @@ Tests to preserve or rewrite:
 
 Current code:
 
-- `cmd/GoDriveLog/main.go` loads config, derives active sensors, creates a state store, opens JSONL logging, chooses mock or ELMOBD reader, creates the Fyne app/window, starts dashboard refresh, and launches one goroutine per active sensor.
+- `cmd/GoGauges/main.go` loads config, derives active sensors, creates a state store, opens JSONL logging, chooses mock or ELMOBD reader, creates the Fyne app/window, starts dashboard refresh, and launches one goroutine per active sensor.
 - It currently decides active sensors from `sensor.log == true`, so logging selection drives polling.
 - Dashboard and logger are wired directly in `main.go`.
 

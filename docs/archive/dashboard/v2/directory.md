@@ -1,6 +1,6 @@
-GoDriveLog/
+GoGauges/
   cmd/
-    GoDriveLog/
+    GoGauges/
       main.go
 
   internal/

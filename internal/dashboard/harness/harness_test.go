@@ -10,9 +10,9 @@ import (
 	"testing"
 	"time"
 
-	v3assets "github.com/MickMake/GoDriveLog/internal/assets"
-	"github.com/MickMake/GoDriveLog/internal/config/v3config"
-	"github.com/MickMake/GoDriveLog/internal/dashboard/v3dashboard"
+	v3assets "github.com/MickMake/GoGauges/internal/assets"
+	"github.com/MickMake/GoGauges/internal/config/v3config"
+	"github.com/MickMake/GoGauges/internal/dashboard/v3dashboard"
 )
 
 func TestNormalizePatternRejectsUnknown(t *testing.T) {
@@ -643,7 +643,7 @@ func setupExampleHarnessEnvironment(tb testing.TB, relativeConfigPath, vehicleID
 
 	configPath := filepath.Join(repoRoot, relativeConfigPath)
 	previousArgs := append([]string(nil), os.Args...)
-	os.Args = []string{"GoDriveLog.test", "--harness", "--config", configPath, "--vehicle", vehicleID}
+	os.Args = []string{"GoGauges.test", "--harness", "--config", configPath, "--vehicle", vehicleID}
 	tb.Cleanup(func() {
 		os.Args = previousArgs
 	})

@@ -4,15 +4,15 @@
 
 | Field | Value |
 |---|---|
-| Old GoDriveLog type | `numeric` |
+| Old GoGauges type | `numeric` |
 | Previous historical name | `seven_segment` |
 | New Gauge group | `segmented_display` |
-| Documentation role | Custom current GoDriveLog gauge design |
+| Documentation role | Custom current GoGauges gauge design |
 | Runtime code impact | None |
 
 ## Design intent
 
-The GoDriveLog `numeric` gauge displays formatted sensor values using image assets per character slot.
+The GoGauges `numeric` gauge displays formatted sensor values using image assets per character slot.
 
 The old `seven_segment` name was hard-renamed to `numeric` because the current renderer is not limited to one physical seven-segment style. In the new Gauge taxonomy it is documented under `segmented_display`, which is broad enough to contain seven-segment, segmented, and dot-matrix-like character display families.
 
@@ -33,12 +33,12 @@ The numeric gauge is asset-composition based. Character appearance comes from th
 
 ## Current design boundaries
 
-The current GoDriveLog `numeric` type is an image-slot formatted character display. It is not yet an individual-segment composition engine.
+The current GoGauges `numeric` type is an image-slot formatted character display. It is not yet an individual-segment composition engine.
 
 The mapping is:
 
 ```text
-Old GoDriveLog type: numeric
+Old GoGauges type: numeric
 New Gauge group:    segmented_display
 ```
 
@@ -48,7 +48,7 @@ Individual segment composition may become the future implementation model. That 
 
 ## Documentation boundary
 
-This file documents the current GoDriveLog custom gauge design only.
+This file documents the current GoGauges custom gauge design only.
 
 It does not:
 - rename the runtime gauge type;

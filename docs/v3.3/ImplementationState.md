@@ -1,4 +1,4 @@
-# GoDriveLog v3.3 implementation state
+# GoGauges v3.3 implementation state
 
 Status: v3.3.4 post-Fyne renderer housekeeping in progress
 Current target: v3.3.4 post-Fyne renderer housekeeping
@@ -96,7 +96,7 @@ The current example gauge positions are visually tuned. For seven-segment packag
 Ebiten is now the normal v3 dashboard command path:
 
 ```bash
-go run ./cmd/GoDriveLog \
+go run ./cmd/GoGauges \
   --harness \
   --config ./examples/baseline-dashboard.yaml \
   --vehicle vw_caddy \
@@ -111,7 +111,7 @@ The `--renderer ebiten` flag remains explicit for readability, but Ebiten is the
 Fyne is not an active v3.3 renderer. The only v3.3 Fyne command shape is a legacy notice:
 
 ```bash
-go run -tags fyne_legacy ./cmd/GoDriveLog
+go run -tags fyne_legacy ./cmd/GoGauges
 ```
 
 For supported Fyne dashboard behaviour, use the v3.2.x line instead.

@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/MickMake/GoDriveLog/internal/config"
+	"github.com/MickMake/GoGauges/internal/config"
 )
 
 const (

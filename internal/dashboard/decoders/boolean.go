@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/MickMake/GoDriveLog/internal/config"
+	"github.com/MickMake/GoGauges/internal/config"
 )
 
 func decodeBoolean(decoder config.DashboardDecoderConfig, inputs Inputs) (Value, error) {

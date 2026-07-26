@@ -8,7 +8,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MickMake/GoDriveLog/internal/sensors"
+	"github.com/MickMake/GoGauges/internal/sensors"
 )
 
 const DateFormat = "20060102"

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/MickMake/GoDriveLog/internal/config"
+	"github.com/MickMake/GoGauges/internal/config"
 )
 
 func decodeThreshold(decoder config.DashboardDecoderConfig, inputs Inputs) (Value, error) {

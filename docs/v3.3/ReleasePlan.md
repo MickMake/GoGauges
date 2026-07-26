@@ -1,4 +1,4 @@
-# GoDriveLog v3.3 release plan
+# GoGauges v3.3 release plan
 
 Status: final housekeeping slice in progress
 Owner: migration implementor

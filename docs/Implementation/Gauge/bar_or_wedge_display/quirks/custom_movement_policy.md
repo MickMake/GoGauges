@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Old GoDriveLog type | `bar` |
+| Old GoGauges type | `bar` |
 | Old realism key | `realism.movement_policy` |
 | New Gauge group | `bar_or_wedge_display` |
 | Paired custom quirk design | `docs/Designs/Gauge/bar_or_wedge_display/quirks/custom_movement_policy.md` |
@@ -27,7 +27,7 @@ The behaviour applies to rendered state only. It must not change source sensor v
 
 ## Configuration boundary
 
-The old GoDriveLog realism key remains `realism.movement_policy`.
+The old GoGauges realism key remains `realism.movement_policy`.
 
 This document does not rename that key and does not introduce a new Gauge-tree runtime configuration name.
 
@@ -37,7 +37,7 @@ This is only the current movement-policy surface. It does not imply a nested mov
 
 ## Documentation boundary
 
-This file records current GoDriveLog custom quirk implementation behaviour only.
+This file records current GoGauges custom quirk implementation behaviour only.
 
 It does not:
 - record implementation status;

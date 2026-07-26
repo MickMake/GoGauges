@@ -1,4 +1,4 @@
-# GoDriveLog v3 implementation guardrails
+# GoGauges v3 implementation guardrails
 
 Status: implementation guidance  
 Applies to: v3 config/runtime/dashboard work  
@@ -207,7 +207,7 @@ Logs are global subscriber definitions selected by vehicles.
 ```yaml
 logs:
   jsonl:
-    path: "logs/godrivelog.jsonl"
+    path: "logs/gogauges.jsonl"
     sensors:
       - speed
       - rpm

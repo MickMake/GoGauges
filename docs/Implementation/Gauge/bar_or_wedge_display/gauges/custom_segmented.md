@@ -4,14 +4,14 @@
 
 | Field | Value |
 |---|---|
-| Old GoDriveLog type | `segmented` |
+| Old GoGauges type | `segmented` |
 | New Gauge group | `bar_or_wedge_display` |
 | Paired design | `docs/Designs/Gauge/bar_or_wedge_display/gauges/custom_segmented.md` |
 | Runtime code impact | None |
 
 ## Current implementation model
 
-The current GoDriveLog `segmented` implementation is a sparse percent-threshold image-selection gauge.
+The current GoGauges `segmented` implementation is a sparse percent-threshold image-selection gauge.
 
 It is not a segmented character display. It selects a complete pre-rendered level image according to the current normalised percentage.
 
@@ -41,10 +41,10 @@ The renderer:
 
 ## Current limitations and boundaries
 
-This implementation record deliberately keeps the old GoDriveLog name and the new Gauge group separate:
+This implementation record deliberately keeps the old GoGauges name and the new Gauge group separate:
 
 ```text
-Old GoDriveLog type: segmented
+Old GoGauges type: segmented
 New Gauge group:    bar_or_wedge_display
 ```
 
@@ -53,7 +53,7 @@ It does not document seven-segment, dot-matrix, LCD, or individual segment rende
 
 ## Documentation boundary
 
-This file records current GoDriveLog implementation behaviour only.
+This file records current GoGauges implementation behaviour only.
 
 It does not:
 - record implementation status;

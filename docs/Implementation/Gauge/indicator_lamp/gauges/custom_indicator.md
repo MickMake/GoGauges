@@ -4,14 +4,14 @@
 
 | Field | Value |
 |---|---|
-| Old GoDriveLog type | `indicator` |
+| Old GoGauges type | `indicator` |
 | New Gauge group | `indicator_lamp` |
 | Paired design | `docs/Designs/Gauge/indicator_lamp/gauges/custom_indicator.md` |
 | Runtime code impact | None |
 
 ## Current implementation model
 
-The current GoDriveLog `indicator` implementation is a binary image-selection gauge.
+The current GoGauges `indicator` implementation is a binary image-selection gauge.
 
 It selects an on or off visual state using the sensor value and sensor validity.
 
@@ -42,7 +42,7 @@ This file documents a two-state indicator. It does not implement multi-state ann
 
 ## Documentation boundary
 
-This file records current GoDriveLog implementation behaviour only.
+This file records current GoGauges implementation behaviour only.
 
 It does not:
 - record implementation status;

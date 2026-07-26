@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Old GoDriveLog type | `radial` |
+| Old GoGauges type | `radial` |
 | Old realism key | `realism.calibration_offset` |
 | New Gauge group | `radial_pointer` |
 | Paired custom quirk design | `docs/Designs/Gauge/radial_pointer/quirks/custom_calibration_offset.md` |
@@ -19,7 +19,7 @@ The behaviour affects displayed radial pointer position only. It must not change
 
 ## Configuration boundary
 
-The old GoDriveLog realism key remains `realism.calibration_offset`.
+The old GoGauges realism key remains `realism.calibration_offset`.
 
 This document does not rename that key and does not introduce a new Gauge-tree runtime configuration name.
 
@@ -29,7 +29,7 @@ Calibration offset is not input calibration. Do not use this quirk to document s
 
 ## Documentation boundary
 
-This file records current GoDriveLog custom quirk implementation behaviour only.
+This file records current GoGauges custom quirk implementation behaviour only.
 
 It does not:
 - record implementation status;

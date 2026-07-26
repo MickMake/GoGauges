@@ -8,14 +8,14 @@ Area: dashboard runtime, logs, replay CLI
 
 Effort: 6-10 Codex hours
 
-Add a replay mode that consumes GoDriveLog event logs and feeds recorded events back into the dashboard runtime.
+Add a replay mode that consumes GoGauges event logs and feeds recorded events back into the dashboard runtime.
 
 This is a core development and validation feature. It allows a real OBD session to be captured once and replayed repeatedly without the vehicle attached.
 
 ## Proposed command shape
 
 ```text
-godrivelog dashboard replay --config dashboard.yaml --log drive.gdl.jsonl
+gogauges dashboard replay --config dashboard.yaml --log drive.gdl.jsonl
 ```
 
 ## Replay path

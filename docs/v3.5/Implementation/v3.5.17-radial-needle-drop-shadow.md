@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Old GoDriveLog type | `radial` |
+| Old GoGauges type | `radial` |
 | Old realism key | `realism.needle_shadow` |
 | New Gauge group | `radial_pointer` |
 | Paired custom quirk design | `docs/Designs/Gauge/radial_pointer/quirks/custom_needle_shadow.md` |
@@ -19,7 +19,7 @@ The behaviour affects displayed radial artwork only. It must not change source s
 
 ## Configuration boundary
 
-The old GoDriveLog realism key remains `realism.needle_shadow`.
+The old GoGauges realism key remains `realism.needle_shadow`.
 
 This document does not rename that key and does not introduce a new Gauge-tree runtime configuration name.
 
@@ -29,7 +29,7 @@ Needle shadow is static display refinement. Do not treat dynamic parallax, light
 
 ## Documentation boundary
 
-This file records current GoDriveLog custom quirk implementation behaviour only.
+This file records current GoGauges custom quirk implementation behaviour only.
 
 It does not:
 - record implementation status;

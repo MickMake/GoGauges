@@ -5,7 +5,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MickMake/GoDriveLog/internal/dashboard/v3dashboard"
+	"github.com/MickMake/GoGauges/internal/dashboard/v3dashboard"
 )
 
 // Sink consumes one complete set of selected-dashboard scenes.

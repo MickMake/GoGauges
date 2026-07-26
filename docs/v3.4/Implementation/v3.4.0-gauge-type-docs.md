@@ -4,14 +4,14 @@
 
 | Field | Value |
 |---|---|
-| Old GoDriveLog type | `radial` |
+| Old GoGauges type | `radial` |
 | New Gauge group | `radial_pointer` |
 | Paired design | `docs/Designs/Gauge/radial_pointer/gauges/custom_radial.md` |
 | Runtime code impact | None |
 
 ## Current implementation model
 
-The current GoDriveLog `radial` implementation treats radial gauges as transform gauges.
+The current GoGauges `radial` implementation treats radial gauges as transform gauges.
 
 The renderer uses the configured value range and gauge geometry to convert a sensor value into a displayed angular position. The moving pointer/needle artwork is then drawn through the active dashboard rendering path.
 
@@ -35,7 +35,7 @@ This implementation record does not claim every radial-pointer quirk is implemen
 
 ## Documentation boundary
 
-This file records current GoDriveLog implementation behaviour only.
+This file records current GoGauges implementation behaviour only.
 
 It does not:
 - record implementation status;

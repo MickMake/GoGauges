@@ -3,7 +3,7 @@ package decoders
 import (
 	"fmt"
 
-	"github.com/MickMake/GoDriveLog/internal/config"
+	"github.com/MickMake/GoGauges/internal/config"
 )
 
 func decodeNormalize(decoder config.DashboardDecoderConfig, inputs Inputs) (Value, error) {
