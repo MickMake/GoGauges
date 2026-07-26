@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MickMake/GoDriveLog/internal/config/v3config"
+	"github.com/MickMake/GoGauges/internal/config/v3config"
 )
 
 type stubReader struct{}

@@ -2,9 +2,9 @@
 
 **Status:** Design discussion  
 **Implementation:** Not started  
-**Applies to:** Future GoDriveLog architecture
+**Applies to:** Future GoGauges architecture
 
-This document captures the current design direction for introducing MQTT into GoDriveLog. It is architectural guidance, not an implementation contract.
+This document captures the current design direction for introducing MQTT into GoGauges. It is architectural guidance, not an implementation contract.
 
 ## Executive summary
 
@@ -38,11 +38,11 @@ The first MQTT slice should not:
 - implement remote cloud sync;
 - expose an internet-facing broker;
 - introduce binary payload formats without evidence that JSON is insufficient;
-- migrate every GoDriveLog data path at once.
+- migrate every GoGauges data path at once.
 
 ## Architectural principle
 
-GoDriveLog already separates gauge behaviour from presentation. The same principle should apply here:
+GoGauges already separates gauge behaviour from presentation. The same principle should apply here:
 
 > MQTT is transport, not truth, storage, or rendering behaviour.
 
@@ -50,7 +50,7 @@ Dashboard code should consume a telemetry abstraction and should not need to kno
 
 ## Proposed daemon model
 
-### `godrivelog-obd`
+### `gogauges-obd`
 
 Real OBD producer.
 
@@ -63,7 +63,7 @@ Responsibilities:
 - publish source health and status;
 - optionally write a local spool later if capture reliability requires it.
 
-### `godrivelog-fake-obd`
+### `gogauges-fake-obd`
 
 Fake telemetry producer.
 
@@ -74,7 +74,7 @@ Responsibilities:
 - support waveform, random, and demo values;
 - later support replay scenarios.
 
-### `godrivelog-dashboard`
+### `gogauges-dashboard`
 
 Dashboard consumer.
 
@@ -86,7 +86,7 @@ Responsibilities:
 - show stale, missing, disconnected, and simulated states clearly;
 - avoid depending on whether the source is real or fake.
 
-### `godrivelog-logger`
+### `gogauges-logger`
 
 Optional persistence consumer.
 
@@ -98,7 +98,7 @@ Responsibilities:
 - handle reconnects and duplicate samples;
 - support export and audit.
 
-### `godrivelog-bridge`
+### `gogauges-bridge`
 
 Possible later remote bridge.
 
@@ -134,20 +134,20 @@ Persistence and remote sync should follow only after this path is stable.
 Keep the hierarchy predictable:
 
 ```text
-godrivelog/{vehicle_id}/telemetry/{signal}
-godrivelog/{vehicle_id}/status/source
-godrivelog/{vehicle_id}/status/health
-godrivelog/{vehicle_id}/control/{command}
+gogauges/{vehicle_id}/telemetry/{signal}
+gogauges/{vehicle_id}/status/source
+gogauges/{vehicle_id}/status/health
+gogauges/{vehicle_id}/control/{command}
 ```
 
 Examples:
 
 ```text
-godrivelog/caddy/telemetry/rpm
-godrivelog/caddy/telemetry/speed
-godrivelog/caddy/telemetry/coolant_temp
-godrivelog/caddy/status/obd
-godrivelog/caddy/status/health
+gogauges/caddy/telemetry/rpm
+gogauges/caddy/telemetry/speed
+gogauges/caddy/telemetry/coolant_temp
+gogauges/caddy/status/obd
+gogauges/caddy/status/health
 ```
 
 Avoid clever topic hierarchies until there is a demonstrated need for them.
@@ -198,7 +198,7 @@ type TelemetrySubscriber interface {
 }
 ```
 
-These should be refined against the existing GoDriveLog packages before implementation. MQTT details should sit behind these abstractions rather than spreading through dashboard code.
+These should be refined against the existing GoGauges packages before implementation. MQTT details should sit behind these abstractions rather than spreading through dashboard code.
 
 ## Dashboard stale-data handling
 
@@ -298,7 +298,7 @@ Risks:
 - duplicate import must be prevented;
 - requires more engineering than the first MQTT slice.
 
-This is probably the best long-term design if GoDriveLog becomes both a live dashboard and a serious trip-history tool.
+This is probably the best long-term design if GoGauges becomes both a live dashboard and a serious trip-history tool.
 
 ## Remote bridge
 
@@ -357,7 +357,7 @@ The largest risk is turning a small useful application into a distributed system
 
 ### Local data loss
 
-If GoDriveLog is used for trip records, tax reconstruction, or historical analysis, local durability matters more than elegant message flow.
+If GoGauges is used for trip records, tax reconstruction, or historical analysis, local durability matters more than elegant message flow.
 
 ### Broker dependency
 
@@ -408,4 +408,4 @@ spool/logger -> SQLite/export
 optional bridge -> remote MQTT/server
 ```
 
-MQTT can be GoDriveLog's live nervous system. It should not be mistaken for the memory, the database, or the tax records.
+MQTT can be GoGauges's live nervous system. It should not be mistaken for the memory, the database, or the tax records.

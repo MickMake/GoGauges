@@ -1,4 +1,4 @@
-# GoDriveLog v3.1 implementation prompts
+# GoGauges v3.1 implementation prompts
 
 Use one prompt file per implementation slice.
 

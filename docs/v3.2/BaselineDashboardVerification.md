@@ -1,4 +1,4 @@
-# GoDriveLog v3.2 baseline dashboard verification
+# GoGauges v3.2 baseline dashboard verification
 
 Status: v3.2.8 baseline verification
 
@@ -22,7 +22,7 @@ The workload is:
 ## Primary command
 
 ```bash
-go run ./cmd/GoDriveLog --harness --config ./docs/v3.2/baseline-dashboard.yaml --vehicle vw_caddy --pattern sweep --interval 50ms
+go run ./cmd/GoGauges --harness --config ./docs/v3.2/baseline-dashboard.yaml --vehicle vw_caddy --pattern sweep --interval 50ms
 ```
 
 Close the harness window or send `Ctrl-C` to stop the run and emit the summary line.
@@ -50,7 +50,7 @@ Record these fields for each verification run:
 ### Fixed pattern
 
 ```bash
-go run ./cmd/GoDriveLog --harness --config ./docs/v3.2/baseline-dashboard.yaml --vehicle vw_caddy --pattern fixed --interval 50ms
+go run ./cmd/GoGauges --harness --config ./docs/v3.2/baseline-dashboard.yaml --vehicle vw_caddy --pattern fixed --interval 50ms
 ```
 
 Expected visual result:
@@ -63,7 +63,7 @@ Expected visual result:
 ### Sweep pattern
 
 ```bash
-go run ./cmd/GoDriveLog --harness --config ./docs/v3.2/baseline-dashboard.yaml --vehicle vw_caddy --pattern sweep --interval 50ms
+go run ./cmd/GoGauges --harness --config ./docs/v3.2/baseline-dashboard.yaml --vehicle vw_caddy --pattern sweep --interval 50ms
 ```
 
 Expected visual result:
@@ -78,7 +78,7 @@ Expected visual result:
 ### Heartbeat pattern
 
 ```bash
-go run ./cmd/GoDriveLog --harness --config ./docs/v3.2/baseline-dashboard.yaml --vehicle vw_caddy --pattern heartbeat --interval 50ms
+go run ./cmd/GoGauges --harness --config ./docs/v3.2/baseline-dashboard.yaml --vehicle vw_caddy --pattern heartbeat --interval 50ms
 ```
 
 Expected visual result:

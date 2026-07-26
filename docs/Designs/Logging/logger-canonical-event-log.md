@@ -1,4 +1,4 @@
-# Canonical GoDriveLog Event Log
+# Canonical GoGauges Event Log
 
 Index: 6
 
@@ -8,9 +8,9 @@ Area: logging, sensor events, schema/versioning
 
 Effort: 5-9 Codex hours
 
-Promote the current JSONL event logger output into a formal, versioned GoDriveLog-owned event log format.
+Promote the current JSONL event logger output into a formal, versioned GoGauges-owned event log format.
 
-The native working log format should be newline-delimited JSON with one event per line. This is the format GoDriveLog core writes, validates, and replays. Other formats should be converted into this format rather than being supported directly inside the runtime.
+The native working log format should be newline-delimited JSON with one event per line. This is the format GoGauges core writes, validates, and replays. Other formats should be converted into this format rather than being supported directly inside the runtime.
 
 ## Proposed file naming
 
@@ -22,12 +22,12 @@ The native working log format should be newline-delimited JSON with one event pe
 ## Proposed event schema marker
 
 ```json
-{"schema":"godrivelog.event.v1"}
+{"schema":"gogauges.event.v1"}
 ```
 
 ## Rules
 
-- Treat GoDriveLog JSONL as the canonical event log, not as incidental logger output.
+- Treat GoGauges JSONL as the canonical event log, not as incidental logger output.
 - Add a schema marker or schema version to every event record.
 - Keep one complete event per line.
 - Preserve the existing event-oriented shape: kind, sensor id, timestamps, status, typed value, previous status, and error.

@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MickMake/GoDriveLog/internal/sensors"
+	"github.com/MickMake/GoGauges/internal/sensors"
 )
 
 func TestAdvanceMinMaxPointerMarkersResetsAtLocalMidnight(t *testing.T) {

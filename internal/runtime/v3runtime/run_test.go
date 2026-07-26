@@ -13,7 +13,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MickMake/GoDriveLog/internal/vehicle"
+	"github.com/MickMake/GoGauges/internal/vehicle"
 )
 
 type fakeReader struct {

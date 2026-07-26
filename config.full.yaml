@@ -1,4 +1,4 @@
-# GoDriveLog v3 full configuration example
+# GoGauges v3 full configuration example
 #
 # Purpose:
 #   This is the complete, heavily-commented v3 configuration reference.
@@ -307,7 +307,7 @@ logs:
   # jsonl is an event-log subscriber definition. Vehicles choose which log definitions run.
   jsonl:
     # path is the output JSON Lines file.
-    path: "logs/godrivelog.jsonl"
+    path: "logs/gogauges.jsonl"
     # sensors selects which global sensor events should be logged.
     # First readings, value changes, and status changes should be written.
     # Unchanged duplicate values should not spam the log.

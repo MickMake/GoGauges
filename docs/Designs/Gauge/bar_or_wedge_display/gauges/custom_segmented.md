@@ -4,14 +4,14 @@
 
 | Field | Value |
 |---|---|
-| Old GoDriveLog type | `segmented` |
+| Old GoGauges type | `segmented` |
 | New Gauge group | `bar_or_wedge_display` |
-| Documentation role | Custom current GoDriveLog gauge design |
+| Documentation role | Custom current GoGauges gauge design |
 | Runtime code impact | None |
 
 ## Design intent
 
-The GoDriveLog `segmented` gauge is a discrete image-selection gauge for percent-threshold displays. It chooses from a sparse set of pre-rendered level images based on the current normalised value.
+The GoGauges `segmented` gauge is a discrete image-selection gauge for percent-threshold displays. It chooses from a sparse set of pre-rendered level images based on the current normalised value.
 
 This old type name is potentially confusing. In the new Gauge taxonomy it is documented under `bar_or_wedge_display` because the current behaviour is stepped level/threshold display, not a general segmented character display.
 
@@ -31,12 +31,12 @@ The gauge expects sparse percent-threshold images. Missing intermediate threshol
 
 ## Current design boundaries
 
-The GoDriveLog `segmented` type remains a distinct old runtime/config type. This document does not rename it to `bar`.
+The GoGauges `segmented` type remains a distinct old runtime/config type. This document does not rename it to `bar`.
 
 The new Gauge group mapping is:
 
 ```text
-Old GoDriveLog type: segmented
+Old GoGauges type: segmented
 New Gauge group:    bar_or_wedge_display
 ```
 
@@ -46,7 +46,7 @@ This is not the same thing as `segmented_display`. It does not document seven-se
 
 ## Documentation boundary
 
-This file documents the current GoDriveLog custom gauge design only.
+This file documents the current GoGauges custom gauge design only.
 
 It does not:
 - rename the runtime gauge type;

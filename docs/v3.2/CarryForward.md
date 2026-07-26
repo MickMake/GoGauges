@@ -1,4 +1,4 @@
-# GoDriveLog v3.2 carry-forward notes
+# GoGauges v3.2 carry-forward notes
 
 Status: planning
 

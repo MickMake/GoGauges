@@ -9,12 +9,12 @@ import (
 	"strings"
 	"sync"
 
-	v3assets "github.com/MickMake/GoDriveLog/internal/assets"
-	"github.com/MickMake/GoDriveLog/internal/config/v3config"
-	"github.com/MickMake/GoDriveLog/internal/dashboard/v3dashboard"
-	jsonlogger "github.com/MickMake/GoDriveLog/internal/logger"
-	"github.com/MickMake/GoDriveLog/internal/sensors"
-	"github.com/MickMake/GoDriveLog/internal/vehicle"
+	v3assets "github.com/MickMake/GoGauges/internal/assets"
+	"github.com/MickMake/GoGauges/internal/config/v3config"
+	"github.com/MickMake/GoGauges/internal/dashboard/v3dashboard"
+	jsonlogger "github.com/MickMake/GoGauges/internal/logger"
+	"github.com/MickMake/GoGauges/internal/sensors"
+	"github.com/MickMake/GoGauges/internal/vehicle"
 )
 
 const defaultEventBuffer = 32

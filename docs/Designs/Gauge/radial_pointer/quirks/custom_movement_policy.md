@@ -4,24 +4,24 @@
 
 | Field | Value |
 |---|---|
-| Old GoDriveLog type | `radial` |
+| Old GoGauges type | `radial` |
 | Old realism key | `realism.movement_policy` |
 | New Gauge group | `radial_pointer` |
 | Paired custom gauge design | `docs/Designs/Gauge/radial_pointer/gauges/custom_radial.md` |
-| Documentation role | Custom current GoDriveLog quirk design |
+| Documentation role | Custom current GoGauges quirk design |
 | Runtime code impact | None |
 
 ## Naming note
 
 This document uses `movement_policy` because that is the current audited runtime surface for the `radial` gauge.
 
-Do not collapse this into the odometer `movement` model. Odometer movement and radial/bar movement policy are related ideas, but they are not the same public configuration shape in current GoDriveLog.
+Do not collapse this into the odometer `movement` model. Odometer movement and radial/bar movement policy are related ideas, but they are not the same public configuration shape in current GoGauges.
 
 ## Design intent
 
 This quirk controls whether the displayed pointer angle jumps immediately or moves toward the target through a simple finite transition.
 
-For the current GoDriveLog `radial` gauge, the behaviour applies to displayed state only. It must not alter the input sensor value, configured range, exported values, or logs.
+For the current GoGauges `radial` gauge, the behaviour applies to displayed state only. It must not alter the input sensor value, configured range, exported values, or logs.
 
 ## Configuration contract
 
@@ -57,7 +57,7 @@ When implemented, every non-immediate movement policy must be:
 
 ## Gauge-family boundary
 
-This custom quirk belongs to the current GoDriveLog `radial` renderer and is documented under the `radial_pointer` Gauge group.
+This custom quirk belongs to the current GoGauges `radial` renderer and is documented under the `radial_pointer` Gauge group.
 
 It is not a generic definition of every moving radial gauge mechanism, and it is not a promise that all gauge types share the same movement configuration.
 
@@ -89,7 +89,7 @@ This is not damping, stiction, overshoot, peg bounce, backlash, power-on sweep, 
 
 ## Documentation boundary
 
-This file documents the current GoDriveLog custom quirk design only.
+This file documents the current GoGauges custom quirk design only.
 
 It does not:
 - rename the runtime gauge type;

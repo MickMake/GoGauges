@@ -1,4 +1,4 @@
-module github.com/MickMake/GoDriveLog
+module github.com/MickMake/GoGauges
 
 go 1.24.0
 

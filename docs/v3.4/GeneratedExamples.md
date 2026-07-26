@@ -1,4 +1,4 @@
-# GoDriveLog v3.4 generated example dashboards
+# GoGauges v3.4 generated example dashboards
 
 ## Purpose
 

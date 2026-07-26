@@ -16,7 +16,7 @@ import (
 )
 
 const (
-	dashboardConfigEnvVar    = "GODRIVELOG_CONFIG_PATH"
+	dashboardConfigEnvVar    = "GOGAUGES_CONFIG_PATH"
 	TypeNumeric              = "numeric"
 	TypeRadial               = "radial"
 	TypeOdometer             = "odometer"

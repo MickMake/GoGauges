@@ -1,4 +1,4 @@
-# GoDriveLog v3.1 dashboard harness
+# GoGauges v3.1 dashboard harness
 
 Status: v3.1.2 implementation
 
@@ -13,7 +13,7 @@ The harness is not a separate demo renderer and does not read sensors or endpoin
 ## Command
 
 ```bash
-go run ./cmd/GoDriveLog \
+go run ./cmd/GoGauges \
   --v3 \
   --harness \
   --config CONFIG \

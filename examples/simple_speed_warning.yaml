@@ -1,4 +1,4 @@
-# GoDriveLog v3 dashboard example
+# GoGauges v3 dashboard example
 # Purposefully simple first-slice dashboard.
 # Uses one vehicle, three OBD sensors, one panel image, one speed digit display,
 # one RPM digit display, and one warning indicator.
@@ -73,7 +73,7 @@ assets:
 
 logs:
   jsonl:
-    path: "logs/godrivelog.jsonl"
+    path: "logs/gogauges.jsonl"
     sensors:
       - speed
       - rpm

@@ -1,4 +1,4 @@
-# GoDriveLog v3 dashboard example
+# GoGauges v3 dashboard example
 # Inspired by the Nissan 300ZX Z31 optional digital dashboard.
 # The Hagerty article describes digital speed plus a colourful bar-chart style display,
 # with fuel, temperature and voltage shown by bars or digits, plus RPM and boost.
@@ -142,7 +142,7 @@ assets:
 
 logs:
   jsonl:
-    path: "logs/godrivelog.jsonl"
+    path: "logs/gogauges.jsonl"
     sensors:
       - speed
       - rpm

@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MickMake/GoDriveLog/internal/dashboard/v3dashboard"
+	"github.com/MickMake/GoGauges/internal/dashboard/v3dashboard"
 )
 
 func TestLatestSinkDropsStalePendingFrames(t *testing.T) {

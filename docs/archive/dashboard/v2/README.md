@@ -1,4 +1,4 @@
-# GoDriveLog Dashboard v2 Planning Docs
+# GoGauges Dashboard v2 Planning Docs
 
 Read in this order:
 

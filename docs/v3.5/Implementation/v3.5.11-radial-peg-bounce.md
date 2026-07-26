@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Old GoDriveLog type | `radial` |
+| Old GoGauges type | `radial` |
 | Old realism key | `realism.peg_bounce` |
 | New Gauge group | `radial_pointer` |
 | Paired custom quirk design | `docs/Designs/Gauge/radial_pointer/quirks/custom_peg_bounce.md` |
@@ -46,7 +46,7 @@ It does not claim:
 
 ## Documentation boundary
 
-This file records current GoDriveLog implementation behaviour only.
+This file records current GoGauges implementation behaviour only.
 
 It does not:
 

@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Old GoDriveLog type | `odometer` |
+| Old GoGauges type | `odometer` |
 | Old configuration field | `odometer.movement` |
 | New Gauge group | `rolling_drum_or_counter` |
 | Paired custom quirk design | `docs/Designs/Gauge/rolling_drum_or_counter/quirks/custom_movement.md` |
@@ -27,7 +27,7 @@ The behaviour applies to rendered wheel state only. It must not change source se
 
 ## Configuration boundary
 
-The old GoDriveLog configuration field remains `odometer.movement`.
+The old GoGauges configuration field remains `odometer.movement`.
 
 This document does not rename that field and does not introduce a new Gauge-tree runtime configuration name.
 
@@ -39,7 +39,7 @@ This is not backlash, drum slop, carry drag, wraparound, or snap settle. Those a
 
 ## Documentation boundary
 
-This file records current GoDriveLog custom quirk implementation behaviour only.
+This file records current GoGauges custom quirk implementation behaviour only.
 
 It does not:
 - record implementation status;

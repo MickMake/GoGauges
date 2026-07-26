@@ -1,4 +1,4 @@
-# GoDriveLog v3 frozen schema target
+# GoGauges v3 frozen schema target
 
 Status: v3.0.1 implementation slice output  
 Target version: `v3.0.1`  

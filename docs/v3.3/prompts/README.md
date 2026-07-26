@@ -1,4 +1,4 @@
-# GoDriveLog v3.3 implementation prompts
+# GoGauges v3.3 implementation prompts
 
 Use one prompt per implementation slice. Each prompt is intentionally narrow so a chat can create one branch, do one slice, open one PR, and stop before the yak notices the clippers.
 

@@ -1,4 +1,4 @@
-# GoDriveLog v3.2 open decisions
+# GoGauges v3.2 open decisions
 
 Status: active; v3.2.6 is in progress
 

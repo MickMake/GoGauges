@@ -1,4 +1,4 @@
-# GoDriveLog v3 dashboard example
+# GoGauges v3 dashboard example
 # Inspired by the Honda S2000 digital cluster.
 # The Hagerty article describes a sweeping rev counter with a 9000rpm red zone,
 # plus temperature and fuel gauges alongside it.
@@ -107,7 +107,7 @@ assets:
 
 logs:
   jsonl:
-    path: "logs/godrivelog.jsonl"
+    path: "logs/gogauges.jsonl"
     sensors:
       - speed
       - rpm

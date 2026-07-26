@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Old GoDriveLog type | `bar` |
+| Old GoGauges type | `bar` |
 | Old realism key | `realism.overshoot` |
 | New Gauge group | `bar_or_wedge_display` |
 | Paired custom quirk design | `docs/Designs/Gauge/bar_or_wedge_display/quirks/custom_overshoot.md` |
@@ -46,7 +46,7 @@ It does not claim:
 
 ## Documentation boundary
 
-This file records current GoDriveLog implementation behaviour only.
+This file records current GoGauges implementation behaviour only.
 
 It does not:
 

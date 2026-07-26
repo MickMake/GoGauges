@@ -1,4 +1,4 @@
-# GoDriveLog Implementation Records
+# GoGauges Implementation Records
 
 **Pillar 3:** Implementation — how designs became code.
 

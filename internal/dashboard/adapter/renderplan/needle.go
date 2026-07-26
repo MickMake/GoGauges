@@ -1,6 +1,6 @@
 package renderplan
 
-import "github.com/MickMake/GoDriveLog/internal/dashboard/v3dashboard"
+import "github.com/MickMake/GoGauges/internal/dashboard/v3dashboard"
 
 type NeedleLikePart struct {
 	X      float64

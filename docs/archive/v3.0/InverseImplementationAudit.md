@@ -1,4 +1,4 @@
-# GoDriveLog v3 inverse implementation audit
+# GoGauges v3 inverse implementation audit
 
 Status: implementation slice output  
 Target version: `v3.0.12`  
@@ -47,7 +47,7 @@ Planning and audit docs:
 
 Old/current runtime paths:
 
-- `cmd/GoDriveLog/main.go`
+- `cmd/GoGauges/main.go`
 - `internal/config/config.go`
 - `internal/config/runtime.go`
 - `internal/logger/jsonl.go`
@@ -70,7 +70,7 @@ v3 implementation paths:
 
 | Area | Old/current behaviour | v3 state | Gap | Priority | Recommendation |
 |---|---|---|---|---|---|
-| Runnable app path | `cmd/GoDriveLog/main.go` starts config, reader, logger, polling, state store, and Fyne UI | v3 packages exist separately | No runnable v3 command path wires selected vehicle -> endpoint -> polling runtime -> subscribers | Critical | Implement before retiring old command/runtime wiring |
+| Runnable app path | `cmd/GoGauges/main.go` starts config, reader, logger, polling, state store, and Fyne UI | v3 packages exist separately | No runnable v3 command path wires selected vehicle -> endpoint -> polling runtime -> subscribers | Critical | Implement before retiring old command/runtime wiring |
 | v3 UI/display adapter | Old `internal/ui/dashboard.go` plus old Fyne renderer displays dashboard output | `v3dashboard` produces scenes/parts | No practical Fyne/display adapter consumes v3 scenes | Critical | Build v3 display adapter before retiring old UI/renderer |
 | Daily JSONL rotation | Old logger writes one file per date under a directory | v3 event writer writes exact configured path | Rotation decision not carried into v3 | Medium | Decide explicitly; do not inherit silently |
 | Typed sensor values | Old and current sensor state are numeric | v3 state still stores `float64` values | Boolean/status sensors are represented by numeric convention | Medium | Keep acceptable short term, but review before broader indicators/status widgets |
@@ -122,7 +122,7 @@ There is no active v3 command path that wires those pieces into the documented r
 
 Removal warning:
 
-Do not retire `cmd/GoDriveLog/main.go`, `internal/config/runtime.go`, or the old UI/runtime path until a v3 command can run at least one selected vehicle from config through endpoint, polling runtime, selected log subscriber, and selected dashboard scene/display path.
+Do not retire `cmd/GoGauges/main.go`, `internal/config/runtime.go`, or the old UI/runtime path until a v3 command can run at least one selected vehicle from config through endpoint, polling runtime, selected log subscriber, and selected dashboard scene/display path.
 
 Recommended implementation slice:
 
@@ -271,7 +271,7 @@ Before archiving old `internal/dashboard/assets/`, compare test coverage and err
 
 Retire these last, or only after their v3 replacements are actively wired:
 
-1. `cmd/GoDriveLog/main.go`
+1. `cmd/GoGauges/main.go`
 2. `internal/ui/dashboard.go`
 3. `internal/dashboard/renderer/fyne/`
 4. `internal/logger/jsonl.go`, if daily rotation remains wanted

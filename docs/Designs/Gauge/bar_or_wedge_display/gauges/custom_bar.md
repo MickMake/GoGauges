@@ -4,14 +4,14 @@
 
 | Field | Value |
 |---|---|
-| Old GoDriveLog type | `bar` |
+| Old GoGauges type | `bar` |
 | New Gauge group | `bar_or_wedge_display` |
-| Documentation role | Custom current GoDriveLog gauge design |
+| Documentation role | Custom current GoGauges gauge design |
 | Runtime code impact | None |
 
 ## Design intent
 
-The GoDriveLog `bar` gauge is a transform gauge. It displays a numeric sensor value by revealing, clipping, filling, or moving an active visual layer according to a normalised value.
+The GoGauges `bar` gauge is a transform gauge. It displays a numeric sensor value by revealing, clipping, filling, or moving an active visual layer according to a normalised value.
 
 The type name describes the renderer behaviour. The visual form may look like a column, fuel bar, level window, progress strip, or themed dashboard element depending on the supplied assets.
 
@@ -31,7 +31,7 @@ The bar gauge uses assets for underlay, active level/fill artwork, and overlay d
 
 ## Current design boundaries
 
-The current GoDriveLog `bar` type is continuous bar-style reveal behaviour. It is separate from the old GoDriveLog `segmented` type even though both now sit under the broader `bar_or_wedge_display` Gauge group.
+The current GoGauges `bar` type is continuous bar-style reveal behaviour. It is separate from the old GoGauges `segmented` type even though both now sit under the broader `bar_or_wedge_display` Gauge group.
 
 ## Not current behaviour
 
@@ -39,7 +39,7 @@ This file does not merge `bar` and `segmented` into one runtime type. It documen
 
 ## Documentation boundary
 
-This file documents the current GoDriveLog custom gauge design only.
+This file documents the current GoGauges custom gauge design only.
 
 It does not:
 - rename the runtime gauge type;

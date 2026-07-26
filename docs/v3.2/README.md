@@ -1,4 +1,4 @@
-# GoDriveLog v3.2
+# GoGauges v3.2
 
 Planning documents for the v3.2 dashboard gauge/instrument package series.
 

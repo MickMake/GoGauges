@@ -4,14 +4,14 @@
 
 | Field | Value |
 |---|---|
-| Old GoDriveLog type | `radial` |
+| Old GoGauges type | `radial` |
 | New Gauge group | `radial_pointer` |
-| Documentation role | Custom current GoDriveLog gauge design |
+| Documentation role | Custom current GoGauges gauge design |
 | Runtime code impact | None |
 
 ## Design intent
 
-The GoDriveLog `radial` gauge is a transform gauge. It displays a numeric sensor value by mapping the value onto an angular position and rotating a visible needle or arc-like asset around a configured pivot.
+The GoGauges `radial` gauge is a transform gauge. It displays a numeric sensor value by mapping the value onto an angular position and rotating a visible needle or arc-like asset around a configured pivot.
 
 The type name describes renderer behaviour, not visual style. Timber dials, brass needles, neon art, warning labels, and similar styling belong in assets and dashboard layout, not in a separate gauge type.
 
@@ -31,7 +31,7 @@ The radial gauge depends on image assets for its visual identity. The renderer s
 
 ## Current design boundaries
 
-The current `radial` design is not a generic catalogue definition of every radial instrument. It is the GoDriveLog renderer model for a value-to-angle pointer gauge.
+The current `radial` design is not a generic catalogue definition of every radial instrument. It is the GoGauges renderer model for a value-to-angle pointer gauge.
 
 ## Not current behaviour
 
@@ -39,7 +39,7 @@ This design file does not claim support for every physical radial-pointer quirk.
 
 ## Documentation boundary
 
-This file documents the current GoDriveLog custom gauge design only.
+This file documents the current GoGauges custom gauge design only.
 
 It does not:
 - rename the runtime gauge type;

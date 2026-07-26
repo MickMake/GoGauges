@@ -1,4 +1,4 @@
-# GoDriveLog v3.4 baseline dashboard verification
+# GoGauges v3.4 baseline dashboard verification
 
 Status: v3.4.5 segmented gauge implemented
 

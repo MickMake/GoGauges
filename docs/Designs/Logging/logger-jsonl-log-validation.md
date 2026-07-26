@@ -8,12 +8,12 @@ Area: logs, CLI, schema validation
 
 Effort: 3-5 Codex hours
 
-Add a validator for GoDriveLog event logs before replay or conversion.
+Add a validator for GoGauges event logs before replay or conversion.
 
 ## Proposed command shape
 
 ```text
-godrivelog logs validate drive.gdl.jsonl
+gogauges logs validate drive.gdl.jsonl
 ```
 
 ## Rules
@@ -30,5 +30,5 @@ godrivelog logs validate drive.gdl.jsonl
 ## Possible future slice
 
 ```text
-v3.x GoDriveLog log validator
+v3.x GoGauges log validator
 ```

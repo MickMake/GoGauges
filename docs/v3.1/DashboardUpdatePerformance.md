@@ -1,4 +1,4 @@
-# GoDriveLog v3.1.3 dashboard update performance
+# GoGauges v3.1.3 dashboard update performance
 
 Status: v3.1.3 implementation
 
@@ -94,7 +94,7 @@ The current design still favours prompt render-error propagation and simple shut
 ## Manual check
 
 ```bash
-go run ./cmd/GoDriveLog \
+go run ./cmd/GoGauges \
   --v3 \
   --harness \
   --config ./docs/v3/config.example.yaml \

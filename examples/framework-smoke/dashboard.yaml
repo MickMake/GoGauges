@@ -1,4 +1,4 @@
-# GoDriveLog v3.4 generated example smoke dashboard
+# GoGauges v3.4 generated example smoke dashboard
 #
 # Purpose:
 #   Prove the deterministic example-asset generation pipeline and file layout.
@@ -9,7 +9,7 @@
 #   go run ./scripts/generate-example-assets -theme framework-smoke
 #
 # Run through the harness path from the repository root:
-#   go run ./cmd/GoDriveLog --harness --config ./examples/framework-smoke/dashboard.yaml --vehicle demo --pattern sweep --interval 50ms --duration 30s --renderer ebiten
+#   go run ./cmd/GoGauges --harness --config ./examples/framework-smoke/dashboard.yaml --vehicle demo --pattern sweep --interval 50ms --duration 30s --renderer ebiten
 
 vehicles:
   demo:

@@ -1,4 +1,4 @@
-# GoDriveLog Designs
+# GoGauges Designs
 
 **Pillar 1:** Design — what the system should do and why.
 

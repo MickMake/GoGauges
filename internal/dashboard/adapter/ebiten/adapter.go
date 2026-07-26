@@ -16,8 +16,8 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/MickMake/GoDriveLog/internal/dashboard/adapter/renderplan"
-	"github.com/MickMake/GoDriveLog/internal/dashboard/v3dashboard"
+	"github.com/MickMake/GoGauges/internal/dashboard/adapter/renderplan"
+	"github.com/MickMake/GoGauges/internal/dashboard/v3dashboard"
 	ebitenui "github.com/hajimehoshi/ebiten/v2"
 )
 
@@ -99,7 +99,7 @@ func (a *Adapter) Run(ctx context.Context, title string) error {
 	}
 	a.ctx = ctx
 	if title == "" {
-		title = "GoDriveLog v3"
+		title = "GoGauges v3"
 	}
 	ebitenui.SetWindowTitle(title)
 	ebitenui.SetWindowSize(a.width, a.height)

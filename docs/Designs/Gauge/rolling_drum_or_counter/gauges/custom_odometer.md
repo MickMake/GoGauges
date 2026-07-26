@@ -4,14 +4,14 @@
 
 | Field | Value |
 |---|---|
-| Old GoDriveLog type | `odometer` |
+| Old GoGauges type | `odometer` |
 | New Gauge group | `rolling_drum_or_counter` |
-| Documentation role | Custom current GoDriveLog gauge design |
+| Documentation role | Custom current GoGauges gauge design |
 | Runtime code impact | None |
 
 ## Design intent
 
-The GoDriveLog `odometer` gauge is a transform gauge. It displays a numeric value using rolling digit or wheel-strip assets clipped through fixed windows.
+The GoGauges `odometer` gauge is a transform gauge. It displays a numeric value using rolling digit or wheel-strip assets clipped through fixed windows.
 
 The type models a rolling counter display rather than a plain formatted text readout.
 
@@ -40,7 +40,7 @@ Each wheel is backed by a strip asset. The artwork, digit shape, ageing, tint, a
 
 ## Current design boundaries
 
-The GoDriveLog odometer model is a flat strip/window renderer. It is not a full physical gear train, curved drum, or mechanical counter simulator.
+The GoGauges odometer model is a flat strip/window renderer. It is not a full physical gear train, curved drum, or mechanical counter simulator.
 
 ## Not current behaviour
 
@@ -48,7 +48,7 @@ Do not treat backlash, gear lash, advanced easing, inertia, curved depth, or rea
 
 ## Documentation boundary
 
-This file documents the current GoDriveLog custom gauge design only.
+This file documents the current GoGauges custom gauge design only.
 
 It does not:
 - rename the runtime gauge type;

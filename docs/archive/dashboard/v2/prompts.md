@@ -22,7 +22,7 @@ The prompts are intentionally condensed. Do not invite the architecture goblin t
 ## Global guardrails for all v2 dashboard work
 
 ```text
-Project: MickMake/GoDriveLog
+Project: MickMake/GoGauges
 
 Hard rule:
 Do not implement compatibility with the old per-PID display.widget dashboard model.
@@ -56,7 +56,7 @@ Prefer:
 ## v2.0.x prompt - New config schema
 
 ```text
-Implement stage v2.0.x of the GoDriveLog dashboard rewrite.
+Implement stage v2.0.x of the GoGauges dashboard rewrite.
 
 Goal:
 Separate sensor configuration from dashboard visual configuration.
@@ -83,7 +83,7 @@ Guardrails:
 ## v2.1.x prompt - Dashboard config validation only
 
 ```text
-Implement stage v2.1.x of the GoDriveLog dashboard rewrite.
+Implement stage v2.1.x of the GoGauges dashboard rewrite.
 
 Goal:
 Load and validate the dashboard schema, but do not render it yet.
@@ -116,7 +116,7 @@ Guardrails:
 ## v2.2.x prompt - Sensor state boundary
 
 ```text
-Implement stage v2.2.x of the GoDriveLog dashboard rewrite.
+Implement stage v2.2.x of the GoGauges dashboard rewrite.
 
 Goal:
 Introduce a neutral runtime sensor state boundary.
@@ -143,7 +143,7 @@ Guardrails:
 ## v2.3.x prompt - Decoder engine
 
 ```text
-Implement stage v2.3.x of the GoDriveLog dashboard rewrite.
+Implement stage v2.3.x of the GoGauges dashboard rewrite.
 
 Goal:
 Add a reusable decoder engine that converts sensor state into useful visual-ready outputs.
@@ -178,7 +178,7 @@ Guardrails:
 ## v2.4.x prompt - Asset registry
 
 ```text
-Implement stage v2.4.x of the GoDriveLog dashboard rewrite.
+Implement stage v2.4.x of the GoGauges dashboard rewrite.
 
 Goal:
 Add an asset registry for dashboard visuals.
@@ -211,7 +211,7 @@ Guardrails:
 ## v2.5.x prompt - Scene primitives
 
 ```text
-Implement stage v2.5.x of the GoDriveLog dashboard rewrite.
+Implement stage v2.5.x of the GoGauges dashboard rewrite.
 
 Goal:
 Add scene primitive models and runtime evaluation without depending on old widgets.
@@ -245,7 +245,7 @@ Guardrails:
 ## v2.6.x prompt - Fyne scene renderer
 
 ```text
-Implement stage v2.6.x of the GoDriveLog dashboard rewrite.
+Implement stage v2.6.x of the GoGauges dashboard rewrite.
 
 Goal:
 Render configured scene primitives in Fyne.
@@ -274,7 +274,7 @@ Guardrails:
 ## v2.7.x prompt - First real dashboard
 
 ```text
-Implement stage v2.7.x of the GoDriveLog dashboard rewrite.
+Implement stage v2.7.x of the GoGauges dashboard rewrite.
 
 Goal:
 Deliver the first real asset-driven dashboard as a vertical slice.
@@ -307,7 +307,7 @@ Guardrails:
 ## v2.8.x prompt - Remove old widgets
 
 ```text
-Implement stage v2.8.x of the GoDriveLog dashboard rewrite.
+Implement stage v2.8.x of the GoGauges dashboard rewrite.
 
 Goal:
 Delete the old dashboard widget architecture.
@@ -340,7 +340,7 @@ Guardrails:
 ## v2.9.x prompt - Reusable block library
 
 ```text
-Implement stage v2.9.x of the GoDriveLog dashboard rewrite.
+Implement stage v2.9.x of the GoGauges dashboard rewrite.
 
 Goal:
 Add reusable visual blocks so dashboards can be built from config and images.

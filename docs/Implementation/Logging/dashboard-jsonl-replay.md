@@ -9,8 +9,8 @@ Not implemented.
 Verified current code does not provide the designed feature in the audited scope.
 
 ## Packages and Files
-- `cmd/GoDriveLog/main_ebiten.go`
-- `cmd/GoDriveLog/v3_preview_ebiten.go`
+- `cmd/GoGauges/main_ebiten.go`
+- `cmd/GoGauges/v3_preview_ebiten.go`
 - `internal/runtime/v3runtime/run.go`
 
 ## Types
@@ -48,8 +48,8 @@ Add a replay command, a log reader, event-to-runtime wiring, and replay-specific
 ## Verification Notes
 
 Files inspected:
-- `cmd/GoDriveLog/main_ebiten.go`
-- `cmd/GoDriveLog/v3_preview_ebiten.go`
+- `cmd/GoGauges/main_ebiten.go`
+- `cmd/GoGauges/v3_preview_ebiten.go`
 - `internal/runtime/v3runtime/run.go`
 
 Symbols verified:

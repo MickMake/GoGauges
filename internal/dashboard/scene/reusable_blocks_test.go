@@ -3,7 +3,7 @@ package scene
 import (
 	"testing"
 
-	"github.com/MickMake/GoDriveLog/internal/config"
+	"github.com/MickMake/GoGauges/internal/config"
 )
 
 func TestReusableBlockAliasesResolveToScenePrimitives(t *testing.T) {

@@ -1,4 +1,4 @@
-# GoDriveLog Dashboard Config Examples
+# GoGauges Dashboard Config Examples
 
 These are brainstorming schemas, not implementation contracts. The goal is to test whether a dashboard can be built from a small engine plus large config and image assets.
 
@@ -27,7 +27,7 @@ This example uses background art, seven-segment digit sprites, a squiggly thrott
 
 ```yaml
 schema_version: 1
-kind: godrivelog_dashboard
+kind: gogauges_dashboard
 id: bttf_sprite_main
 name: BTTF Sprite Main
 
@@ -298,7 +298,7 @@ This one is less flashy. It tests whether complex blocks can be reusable and sen
 
 ```yaml
 schema_version: 1
-kind: godrivelog_dashboard
+kind: gogauges_dashboard
 id: reusable_block_test
 name: Reusable Block Test
 
@@ -508,7 +508,7 @@ This tests the idea that many weird visual designs are just `value -> frame`.
 
 ```yaml
 schema_version: 1
-kind: godrivelog_dashboard
+kind: gogauges_dashboard
 id: sloped_bar_gauge
 name: Sloped Bar Gauge
 
@@ -638,7 +638,7 @@ This is closer to a complete dashboard scene.
 
 ```yaml
 schema_version: 1
-kind: godrivelog_dashboard
+kind: gogauges_dashboard
 id: complete_scene_test
 name: Complete Scene Test
 
@@ -969,7 +969,7 @@ This tests your idea that coded logic can exist, but be reused as named building
 
 ```yaml
 schema_version: 1
-kind: godrivelog_dashboard
+kind: gogauges_dashboard
 id: decoder_block_library_demo
 name: Decoder Block Library Demo
 
@@ -1149,6 +1149,6 @@ This is probably the most important pattern if you want “some coding, but reus
 
 The guiding sentence:
 
-> GoDriveLog dashboards are layered visual scenes driven by sensor state, reusable decoders, and reusable visual blocks.
+> GoGauges dashboards are layered visual scenes driven by sensor state, reusable decoders, and reusable visual blocks.
 
 That is flexible without becoming a full scripting language wearing a fake moustache.

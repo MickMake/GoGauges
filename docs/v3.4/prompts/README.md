@@ -1,4 +1,4 @@
-# GoDriveLog v3.4 prompts
+# GoGauges v3.4 prompts
 
 This directory contains one prompt per planned v3.4 implementation slice.
 

@@ -1,13 +1,13 @@
-# GoDriveLog Pi4 Fyne Kiosk Setup
+# GoGauges Pi4 Fyne Kiosk Setup
 
 Version: 0.1  
-Target: Raspberry Pi 4 running a minimal Linux install that boots directly into the GoDriveLog Fyne display.
+Target: Raspberry Pi 4 running a minimal Linux install that boots directly into the GoGauges Fyne display.
 
 ---
 
 ## 1. Goal
 
-Set up a Raspberry Pi 4 as a single-purpose GoDriveLog in-vehicle display.
+Set up a Raspberry Pi 4 as a single-purpose GoGauges in-vehicle display.
 
 The target stack is:
 
@@ -15,8 +15,8 @@ The target stack is:
 Raspberry Pi OS Lite 64-bit
   -> minimal X11 environment
   -> Go + Fyne build dependencies
-  -> GoDriveLog daemon as a systemd service
-  -> GoDriveLog Fyne display launched automatically on tty1
+  -> GoGauges daemon as a systemd service
+  -> GoGauges Fyne display launched automatically on tty1
 ```
 
 This avoids a full desktop environment while still supporting Fyne now.
@@ -87,18 +87,18 @@ No full desktop. No taskbar. No “helpful” notification daemon waving from th
 
 ---
 
-## 5. Create the GoDriveLog runtime user
+## 5. Create the GoGauges runtime user
 
 Create a dedicated user:
 
 ```bash
-sudo useradd -r -m -s /bin/bash godrivelog || true
+sudo useradd -r -m -s /bin/bash gogauges || true
 ```
 
 Add it to the groups needed for serial, display, rendering and input access:
 
 ```bash
-sudo usermod -aG dialout,video,input,render,tty godrivelog
+sudo usermod -aG dialout,video,input,render,tty gogauges
 ```
 
 Notes:
@@ -116,54 +116,54 @@ sudo reboot
 
 ---
 
-## 6. Prepare GoDriveLog directories
+## 6. Prepare GoGauges directories
 
 Create config and data directories:
 
 ```bash
-sudo mkdir -p /etc/godrivelog
-sudo mkdir -p /var/lib/godrivelog
-sudo chown -R godrivelog:godrivelog /var/lib/godrivelog
+sudo mkdir -p /etc/gogauges
+sudo mkdir -p /var/lib/gogauges
+sudo chown -R gogauges:gogauges /var/lib/gogauges
 ```
 
 Create or copy your config file:
 
 ```bash
-sudo nano /etc/godrivelog/config.yaml
+sudo nano /etc/gogauges/config.yaml
 ```
 
 Adjust the config path later if your app expects a different file.
 
 ---
 
-## 7. Build GoDriveLog with Fyne support
+## 7. Build GoGauges with Fyne support
 
-From your GoDriveLog repository on the Pi:
+From your GoGauges repository on the Pi:
 
 ```bash
 go mod tidy
-go build -tags fyne -o bin/godrivelog ./cmd/godrivelog
+go build -tags fyne -o bin/gogauges ./cmd/gogauges
 ```
 
 Install the binary:
 
 ```bash
-sudo install -m 0755 bin/godrivelog /usr/local/bin/godrivelog
+sudo install -m 0755 bin/gogauges /usr/local/bin/gogauges
 ```
 
 Check it exists:
 
 ```bash
-/usr/local/bin/godrivelog --help
+/usr/local/bin/gogauges --help
 ```
 
 Planned display command once the Fyne renderer exists:
 
 ```bash
-/usr/local/bin/godrivelog display fyne --config /etc/godrivelog/config.yaml
+/usr/local/bin/gogauges display fyne --config /etc/gogauges/config.yaml
 ```
 
-Important: this Pi setup makes the system Fyne-ready now. The `display fyne` command still needs to exist in the GoDriveLog codebase.
+Important: this Pi setup makes the system Fyne-ready now. The `display fyne` command still needs to exist in the GoGauges codebase.
 
 ---
 
@@ -172,20 +172,20 @@ Important: this Pi setup makes the system Fyne-ready now. The `display fyne` com
 Create the service file:
 
 ```bash
-sudo tee /etc/systemd/system/godrivelog.service >/dev/null <<'EOF'
+sudo tee /etc/systemd/system/gogauges.service >/dev/null <<'EOF'
 [Unit]
-Description=GoDriveLog OBD logger daemon
+Description=GoGauges OBD logger daemon
 After=network-online.target
 Wants=network-online.target
 
 [Service]
 Type=simple
-ExecStart=/usr/local/bin/godrivelog daemon --config /etc/godrivelog/config.yaml
+ExecStart=/usr/local/bin/gogauges daemon --config /etc/gogauges/config.yaml
 Restart=always
 RestartSec=5
-User=godrivelog
-Group=godrivelog
-WorkingDirectory=/var/lib/godrivelog
+User=gogauges
+Group=gogauges
+WorkingDirectory=/var/lib/gogauges
 
 [Install]
 WantedBy=multi-user.target
@@ -196,19 +196,19 @@ Enable and start it:
 
 ```bash
 sudo systemctl daemon-reload
-sudo systemctl enable --now godrivelog.service
+sudo systemctl enable --now gogauges.service
 ```
 
 Check status:
 
 ```bash
-systemctl status godrivelog.service
+systemctl status gogauges.service
 ```
 
 View logs:
 
 ```bash
-journalctl -u godrivelog.service -f
+journalctl -u gogauges.service -f
 ```
 
 Design rule: keep the daemon separate from the display. The daemon owns OBD and data capture. The display shows state. Do not let the GUI become the octopus holding all the spanners.
@@ -217,10 +217,10 @@ Design rule: keep the daemon separate from the display. The daemon owns OBD and 
 
 ## 9. Create the Fyne kiosk startup script
 
-Create `.xinitrc` for the `godrivelog` user:
+Create `.xinitrc` for the `gogauges` user:
 
 ```bash
-sudo -u godrivelog tee /home/godrivelog/.xinitrc >/dev/null <<'EOF'
+sudo -u gogauges tee /home/gogauges/.xinitrc >/dev/null <<'EOF'
 #!/bin/sh
 
 xset s off
@@ -232,22 +232,22 @@ unclutter -idle 0.2 -root &
 exec openbox-session &
 sleep 1
 
-exec /usr/local/bin/godrivelog display fyne --config /etc/godrivelog/config.yaml
+exec /usr/local/bin/gogauges display fyne --config /etc/gogauges/config.yaml
 EOF
 
-sudo chmod +x /home/godrivelog/.xinitrc
+sudo chmod +x /home/gogauges/.xinitrc
 ```
 
-This disables screen blanking and starts the GoDriveLog Fyne display inside X11.
+This disables screen blanking and starts the GoGauges Fyne display inside X11.
 
 ---
 
 ## 10. Auto-start X on tty1
 
-Add this to the `godrivelog` user profile:
+Add this to the `gogauges` user profile:
 
 ```bash
-sudo -u godrivelog tee -a /home/godrivelog/.profile >/dev/null <<'EOF'
+sudo -u gogauges tee -a /home/gogauges/.profile >/dev/null <<'EOF'
 
 if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
     startx -- -nocursor
@@ -270,7 +270,7 @@ Paste:
 ```ini
 [Service]
 ExecStart=
-ExecStart=-/sbin/agetty --autologin godrivelog --noclear %I $TERM
+ExecStart=-/sbin/agetty --autologin gogauges --noclear %I $TERM
 ```
 
 Apply:
@@ -283,25 +283,25 @@ sudo systemctl restart getty@tty1
 On next boot, the Pi should:
 
 1. Boot to tty1.
-2. Auto-login as `godrivelog`.
+2. Auto-login as `gogauges`.
 3. Run `startx`.
-4. Launch the GoDriveLog Fyne display.
+4. Launch the GoGauges Fyne display.
 
 ---
 
 ## 12. Test manually first
 
-Before relying on auto-start, test as the `godrivelog` user:
+Before relying on auto-start, test as the `gogauges` user:
 
 ```bash
-sudo -iu godrivelog
+sudo -iu gogauges
 startx
 ```
 
 If X starts but the app fails, inspect:
 
 ```bash
-cat /home/godrivelog/.xsession-errors
+cat /home/gogauges/.xsession-errors
 journalctl -xe
 ```
 
@@ -324,8 +324,8 @@ sudo apt install -y mesa-utils
 Check daemon:
 
 ```bash
-systemctl status godrivelog.service
-journalctl -u godrivelog.service -f
+systemctl status gogauges.service
+journalctl -u gogauges.service -f
 ```
 
 Check boot/login:
@@ -337,7 +337,7 @@ systemctl status getty@tty1
 Check groups:
 
 ```bash
-id godrivelog
+id gogauges
 ```
 
 Check OBD adapter:
@@ -351,7 +351,7 @@ Check display environment:
 
 ```bash
 echo $DISPLAY
-ps aux | grep -E 'Xorg|openbox|godrivelog'
+ps aux | grep -E 'Xorg|openbox|gogauges'
 ```
 
 ---
@@ -363,7 +363,7 @@ Do not do these until the app is working reliably. Premature hardening is how a 
 Later improvements:
 
 - Read-only root filesystem.
-- Separate writable `/var/lib/godrivelog`.
+- Separate writable `/var/lib/gogauges`.
 - Watchdog reboot.
 - Automatic log rotation.
 - Power-loss-safe shutdown strategy.
@@ -377,7 +377,7 @@ Later improvements:
 
 ## 15. Suggested repo branch for Fyne work
 
-For the GoDriveLog code changes, branch from latest `main`:
+For the GoGauges code changes, branch from latest `main`:
 
 ```bash
 git checkout main
@@ -389,7 +389,7 @@ Scope for that branch:
 
 - Add the Fyne renderer.
 - Keep it behind the `fyne` build tag.
-- Add `godrivelog display fyne`.
+- Add `gogauges display fyne`.
 - Do not mix in daemon rewrites, OBD changes, or packaging work.
 
 Keep the branch small. Small branches are like sharp chisels: useful, controllable, and less likely to remove a thumb.

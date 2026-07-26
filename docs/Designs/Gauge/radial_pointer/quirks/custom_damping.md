@@ -4,18 +4,18 @@
 
 | Field | Value |
 |---|---|
-| Old GoDriveLog type | `radial` |
+| Old GoGauges type | `radial` |
 | Old realism key | `realism.damping` |
 | New Gauge group | `radial_pointer` |
 | Paired custom gauge design | `docs/Designs/Gauge/radial_pointer/gauges/custom_radial.md` |
-| Documentation role | Custom current GoDriveLog quirk design |
+| Documentation role | Custom current GoGauges quirk design |
 | Runtime code impact | None |
 
 ## Design intent
 
 This quirk adds visible smoothing and lag so the display does not jump instantly to every new target value.
 
-For the current GoDriveLog `radial` gauge, the behaviour applies to the displayed angle only. It must not alter the input sensor value, configured ranges, exported values, or logs.
+For the current GoGauges `radial` gauge, the behaviour applies to the displayed angle only. It must not alter the input sensor value, configured ranges, exported values, or logs.
 
 ## Physical mechanism being imitated
 
@@ -50,11 +50,11 @@ Other gauge types may have related conceptual behaviour, but this file only docu
 
 ## Relationship to generic catalogue quirks
 
-This file is a GoDriveLog-specific `custom_` quirk record. Generic catalogue quirk files in the same Gauge group describe physical display families more broadly and should not be treated as current implementation documentation.
+This file is a GoGauges-specific `custom_` quirk record. Generic catalogue quirk files in the same Gauge group describe physical display families more broadly and should not be treated as current implementation documentation.
 
 ## Documentation boundary
 
-This file documents current GoDriveLog custom quirk design only.
+This file documents current GoGauges custom quirk design only.
 
 It does not:
 

@@ -1,10 +1,10 @@
-# GoDriveLog v3.3 baseline dashboard verification
+# GoGauges v3.3 baseline dashboard verification
 
 Status: v3.3 renderer decision complete; Ebiten is active default
 
 ## Purpose
 
-This baseline verifies renderer behaviour through the real GoDriveLog dashboard path.
+This baseline verifies renderer behaviour through the real GoGauges dashboard path.
 
 It is intentionally not a demo renderer benchmark. The active renderer must be driven by the same upstream runtime/harness path used by real dashboards.
 
@@ -54,7 +54,7 @@ Do not compare against renderer-local fake values. A cardboard tachometer can be
 ## Primary Ebiten command
 
 ```bash
-go run ./cmd/GoDriveLog \
+go run ./cmd/GoGauges \
   --harness \
   --config ./examples/baseline-dashboard.yaml \
   --vehicle vw_caddy \

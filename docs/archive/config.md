@@ -1,6 +1,6 @@
-# GoDriveLog Config
+# GoGauges Config
 
-This document defines the GoDriveLog YAML configuration format.
+This document defines the GoGauges YAML configuration format.
 
 The current schema keeps connection/logging concerns separate from the dashboard visual scene. Sensors define what can be read and logged. The dashboard defines canvas size, render cadence, assets, decoders, blocks, and layers.
 
@@ -96,7 +96,7 @@ log:
 | `rotate` | string | no | Rotation mode. Currently only `daily`. Defaults to `daily`. |
 | `directory` | string | no | Directory for JSONL logs. Defaults to `./log`. |
 
-Daily rotation means GoDriveLog writes readings to a date-based JSONL file and opens a new file when the date changes.
+Daily rotation means GoGauges writes readings to a date-based JSONL file and opens a new file when the date changes.
 
 ## Vehicle config
 

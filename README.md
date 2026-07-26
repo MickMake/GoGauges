@@ -1,6 +1,6 @@
-# GoDriveLog
+# GoGauges
 
-GoDriveLog is a deliberately small Go/Ebiten in-vehicle telemetry dashboard for Raspberry Pi-style installs.
+GoGauges is a deliberately small Go/Ebiten in-vehicle telemetry dashboard for Raspberry Pi-style installs.
 
 The project is being reshaped around the active v3 runtime:
 
@@ -19,7 +19,7 @@ The goal is simple: read vehicle telemetry, keep the runtime boring, log useful 
 
 ## Current status
 
-GoDriveLog now uses Ebiten for the active v3 dashboard command path. Earlier Fyne dashboard code lives in the v3.2.x line only; v3.3.x and later are Ebiten-first.
+GoGauges now uses Ebiten for the active v3 dashboard command path. Earlier Fyne dashboard code lives in the v3.2.x line only; v3.3.x and later are Ebiten-first.
 
 The current v3.3 implementation state is documented under `docs/v3.3/`. Some older config/runtime documents may still describe legacy concepts while the repo is being migrated.
 
@@ -43,7 +43,7 @@ The important design rules are:
 - Dashboards do not fetch OBD values directly.
 - If a documented config item exists, it is active.
 - Each dashboard owns its physical/logical display target.
-- GoDriveLog connects to an OBD-like endpoint address.
+- GoGauges connects to an OBD-like endpoint address.
 - Bench testing should use an OBD-like endpoint, for example `tcp://127.0.0.1:35000`.
 - Unknown config fields should fail validation during v3 implementation.
 
@@ -113,17 +113,17 @@ From the repository root:
 
 ```bash
 go mod tidy
-go build ./cmd/GoDriveLog
+go build ./cmd/GoGauges
 ```
 
-The binary will be written to the current directory as `GoDriveLog` unless you pass `-o`.
+The binary will be written to the current directory as `GoGauges` unless you pass `-o`.
 
 ## Baseline dashboard harness
 
 From the repository root:
 
 ```bash
-go run ./cmd/GoDriveLog dashboard harness vw_caddy \
+go run ./cmd/GoGauges dashboard harness vw_caddy \
   --config ./examples/baseline-dashboard.yaml \
   --pattern sweep \
   --interval 50ms \
@@ -140,7 +140,7 @@ With `--pattern sweep`, the harness is now gauge-aware: numeric and odometer sou
 To inspect the resolved dashboard config without dumping the whole YAML:
 
 ```bash
-go run ./cmd/GoDriveLog dashboard --config ./examples/baseline-dashboard.yaml
+go run ./cmd/GoGauges dashboard --config ./examples/baseline-dashboard.yaml
 ```
 
 The bare `dashboard` command prints a compact overview of vehicles, attached dashboards, widget/gauge sources, and OBD-backed PIDs. It is a map, not the territory, but it is at least the correct map.
@@ -150,7 +150,7 @@ The bare `dashboard` command prints a compact overview of vehicles, attached das
 To inspect one gauge manually without live OBD input or the full harness:
 
 ```bash
-go run ./cmd/GoDriveLog dashboard preview \
+go run ./cmd/GoGauges dashboard preview \
   ./examples/gauge-realism/radial/00-baseline.yaml
 ```
 
@@ -172,7 +172,7 @@ The active v3.3 dashboard renderer is Ebiten. Raspberry Pi builds should focus o
 
 ## OBD transport
 
-The intended v3 model is that GoDriveLog connects to an OBD-like endpoint declared by the selected vehicle:
+The intended v3 model is that GoGauges connects to an OBD-like endpoint declared by the selected vehicle:
 
 ```yaml
 vehicles:

@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/MickMake/GoDriveLog/internal/assets/examplegen"
+	"github.com/MickMake/GoGauges/internal/assets/examplegen"
 )
 
 const frameworkSmokeTheme = "framework-smoke"

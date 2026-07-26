@@ -1,4 +1,4 @@
-# GoDriveLog Pi4 Fyne Kiosk Setup — Implementation
+# GoGauges Pi4 Fyne Kiosk Setup — Implementation
 
 ## Purpose
 Audits whether the repository implements the Raspberry Pi 4 kiosk setup described by the design.
@@ -9,8 +9,8 @@ Not implemented.
 Verified current code does not provide the designed feature in the audited scope.
 
 ## Packages and Files
-- `cmd/GoDriveLog/main.go`
-- `cmd/GoDriveLog/main_ebiten.go`
+- `cmd/GoGauges/main.go`
+- `cmd/GoGauges/main_ebiten.go`
 - `README.md`
 
 ## Types
@@ -47,8 +47,8 @@ Reintroduce a supported Pi4 kiosk path only if that deployment target is still w
 ## Verification Notes
 
 Files inspected:
-- `cmd/GoDriveLog/main.go`
-- `cmd/GoDriveLog/main_ebiten.go`
+- `cmd/GoGauges/main.go`
+- `cmd/GoGauges/main_ebiten.go`
 - `README.md`
 
 Symbols verified:

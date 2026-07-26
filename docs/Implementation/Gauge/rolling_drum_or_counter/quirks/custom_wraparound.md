@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Old GoDriveLog type | `odometer` |
+| Old GoGauges type | `odometer` |
 | Old realism key | `realism.wraparound` |
 | New Gauge group | `rolling_drum_or_counter` |
 | Paired custom quirk design | `docs/Designs/Gauge/rolling_drum_or_counter/quirks/custom_wraparound.md` |
@@ -19,7 +19,7 @@ The behaviour applies to rendered odometer wheel or strip state. It must not cha
 
 ## Configuration boundary
 
-The old GoDriveLog realism key remains `realism.wraparound`.
+The old GoGauges realism key remains `realism.wraparound`.
 
 This document does not rename that key and does not introduce a new Gauge-tree runtime configuration name.
 
@@ -36,7 +36,7 @@ Do not treat `realism.backlash`, per-digit response lag, or future v3.7 odometer
 
 ## Documentation boundary
 
-This file records current GoDriveLog odometer quirk implementation behaviour only.
+This file records current GoGauges odometer quirk implementation behaviour only.
 
 It does not:
 - record implementation status;

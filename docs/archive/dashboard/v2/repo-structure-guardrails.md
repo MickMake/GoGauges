@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This file defines where GoDriveLog dashboard v2 code, config, docs, assets, and test data should live.
+This file defines where GoGauges dashboard v2 code, config, docs, assets, and test data should live.
 
 The goal is to stop future implementation work from scattering files across the repo like someone sneezed during a scaffolding delivery.
 
@@ -45,9 +45,9 @@ config.example.yaml
 Target structure after the dashboard v2 rewrite:
 
 ```text
-GoDriveLog/
+GoGauges/
   cmd/
-    GoDriveLog/
+    GoGauges/
       main.go
 
   internal/
@@ -182,7 +182,7 @@ Application entry points only.
 Allowed:
 
 ```text
-cmd/GoDriveLog/main.go
+cmd/GoGauges/main.go
 ```
 
 Rules:
@@ -764,7 +764,7 @@ Expected areas touched:
 ```text
 internal/sensors/state.go
 internal/sensors/state_store.go
-cmd/GoDriveLog/main.go
+cmd/GoGauges/main.go
 internal/config/
 ```
 
@@ -850,7 +850,7 @@ Expected areas touched:
 ```text
 internal/dashboard/renderer/fyne/
 internal/dashboard/scene/
-cmd/GoDriveLog/main.go
+cmd/GoGauges/main.go
 ```
 
 Avoid touching:
@@ -877,7 +877,7 @@ README.md
 Possibly touched:
 
 ```text
-cmd/GoDriveLog/main.go
+cmd/GoGauges/main.go
 internal/dashboard/
 ```
 
@@ -898,7 +898,7 @@ Expected areas touched:
 widgets/
 internal/ui/
 internal/config/
-cmd/GoDriveLog/main.go
+cmd/GoGauges/main.go
 README.md
 configs/examples/
 docs/dashboard/v2/

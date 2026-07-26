@@ -1,4 +1,4 @@
-# GoDriveLog v3.2 mixed gauge dashboard example
+# GoGauges v3.2 mixed gauge dashboard example
 
 vehicles:
   vw_caddy:
@@ -36,7 +36,7 @@ sensors:
 
 logs:
   jsonl:
-    path: "logs/godrivelog.jsonl"
+    path: "logs/gogauges.jsonl"
     sensors:
       - speed
       - rpm

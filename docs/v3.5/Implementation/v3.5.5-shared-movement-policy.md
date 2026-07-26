@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Old GoDriveLog type | `radial` |
+| Old GoGauges type | `radial` |
 | Old realism key | `realism.movement_policy` |
 | New Gauge group | `radial_pointer` |
 | Paired custom quirk design | `docs/Designs/Gauge/radial_pointer/quirks/custom_movement_policy.md` |
@@ -40,7 +40,7 @@ The behaviour applies to rendered state only. It must not change source sensor v
 
 ## Configuration boundary
 
-The old GoDriveLog realism key remains:
+The old GoGauges realism key remains:
 
 ```yaml
 realism:
@@ -70,7 +70,7 @@ To implement `bell` for radial movement policy, code would need to:
 
 ## Documentation boundary
 
-This file records current GoDriveLog custom quirk implementation behaviour only.
+This file records current GoGauges custom quirk implementation behaviour only.
 
 It does not:
 - describe `bell` as currently implemented for radial gauges;

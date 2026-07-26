@@ -1,4 +1,4 @@
-# GoDriveLog v3.1 migration state
+# GoGauges v3.1 migration state
 
 Status: implementation
 Last updated: 2026-06-18

@@ -10,8 +10,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MickMake/GoDriveLog/internal/config/v3config"
-	"github.com/MickMake/GoDriveLog/internal/sensors"
+	"github.com/MickMake/GoGauges/internal/config/v3config"
+	"github.com/MickMake/GoGauges/internal/sensors"
 )
 
 func TestNewJSONLSubscribersFromPlanUsesSelectedVehicleLogs(t *testing.T) {

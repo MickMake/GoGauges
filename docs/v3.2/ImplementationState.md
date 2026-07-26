@@ -1,4 +1,4 @@
-# GoDriveLog v3.2 implementation state
+# GoGauges v3.2 implementation state
 
 Status: v3.2 closed as final supported Fyne dashboard line
 Current target: superseded by v3.3 renderer decision

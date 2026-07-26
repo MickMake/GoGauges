@@ -4,14 +4,14 @@
 
 | Field | Value |
 |---|---|
-| Old GoDriveLog type | `odometer` |
+| Old GoGauges type | `odometer` |
 | New Gauge group | `rolling_drum_or_counter` |
 | Paired design | `docs/Designs/Gauge/rolling_drum_or_counter/gauges/custom_odometer.md` |
 | Runtime code impact | None |
 
 ## Current implementation model
 
-The current GoDriveLog `odometer` implementation is a rolling wheel-strip display.
+The current GoGauges `odometer` implementation is a rolling wheel-strip display.
 
 Each wheel uses a strip asset and a clipped window. The displayed value is represented by strip offsets rather than by composing ordinary text.
 
@@ -47,7 +47,7 @@ The current implementation is flat strip/window rendering. It does not implement
 
 ## Documentation boundary
 
-This file records current GoDriveLog implementation behaviour only.
+This file records current GoGauges implementation behaviour only.
 
 It does not:
 - record implementation status;

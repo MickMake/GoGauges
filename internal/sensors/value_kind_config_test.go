@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/MickMake/GoDriveLog/internal/config/v3config"
+	"github.com/MickMake/GoGauges/internal/config/v3config"
 )
 
 func TestPollingRuntimeRejectsInvalidConfiguredValueKind(t *testing.T) {

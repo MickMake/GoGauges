@@ -1,11 +1,11 @@
-# GoDriveLog reusable baseline dashboard config
+# GoGauges reusable baseline dashboard config
 #
 # Purpose:
 #   Exercise the realistic v3 gauge workload through the normal dashboard
 #   runtime/harness path without renderer-specific demo data.
 #
 # Usage:
-#   go run ./cmd/GoDriveLog --harness --config ./examples/baseline-dashboard.yaml --vehicle vw_caddy --pattern sweep --interval 50ms --duration 60s --renderer ebiten
+#   go run ./cmd/GoGauges --harness --config ./examples/baseline-dashboard.yaml --vehicle vw_caddy --pattern sweep --interval 50ms --duration 60s --renderer ebiten
 
 vehicles:
   vw_caddy:
@@ -45,7 +45,7 @@ sensors:
 
 logs:
   jsonl:
-    path: "logs/godrivelog-baseline.jsonl"
+    path: "logs/gogauges-baseline.jsonl"
     sensors:
       - coolant_temperature
       - speed

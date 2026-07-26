@@ -9,7 +9,7 @@ Not implemented.
 Verified current code does not provide the designed feature in the audited scope.
 
 ## Packages and Files
-- `cmd/GoDriveLog/main_ebiten.go`
+- `cmd/GoGauges/main_ebiten.go`
 - `internal/logger/event_jsonl.go`
 
 ## Types
@@ -38,7 +38,7 @@ No feature-specific tests found.
 This record only covers current repository code.
 
 ## Deviations from Design
-The design proposes `godrivelog logs validate drive.gdl.jsonl`. No matching command or validator was found.
+The design proposes `gogauges logs validate drive.gdl.jsonl`. No matching command or validator was found.
 
 ## Remaining Work
 Add a log-validation command and schema checks if this design is still wanted.
@@ -46,7 +46,7 @@ Add a log-validation command and schema checks if this design is still wanted.
 ## Verification Notes
 
 Files inspected:
-- `cmd/GoDriveLog/main_ebiten.go`
+- `cmd/GoGauges/main_ebiten.go`
 - `internal/logger/event_jsonl.go`
 
 Symbols verified:

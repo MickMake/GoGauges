@@ -6,7 +6,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/MickMake/GoDriveLog/internal/sensors"
+	"github.com/MickMake/GoGauges/internal/sensors"
 	"gopkg.in/yaml.v3"
 )
 
