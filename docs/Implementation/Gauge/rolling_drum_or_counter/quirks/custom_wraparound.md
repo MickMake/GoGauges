@@ -48,6 +48,6 @@ Implementation status belongs only in `docs/Status.md`.
 
 ## Historical source basis
 
-- `docs/v3.5/ImplementationState.md
+- `docs/v3.5/ImplementationState.md`
 - `docs/Status.md`
 
