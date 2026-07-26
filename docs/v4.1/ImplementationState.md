@@ -1,22 +1,22 @@
-# v3.7 Implementation State
+# v4.1 Implementation State
 
 Status: not started
 
-Current target: `v3.7.0`
+Current target: `v4.1.0`
 Current branch: none
 Current pull request: none
 
 ## Checklist
 
-- [ ] v3.7.0 Release planning docs
-- [ ] v3.7.1 Odometer backlash
-- [ ] v3.7.2 Per-digit response lag
-- [ ] v3.7.3 Leading-zero behaviour
-- [ ] v3.7.4 Digit bleed
-- [ ] v3.7.5 Ghosting
-- [ ] v3.7.6 Uneven brightness
-- [ ] v3.7.7 Load sag
-- [ ] v3.7.8 Tests, previews and docs checkpoint
+- [ ] v4.1.0 Release planning docs
+- [ ] v4.1.1 Odometer backlash
+- [ ] v4.1.2 Per-digit response lag
+- [ ] v4.1.3 Leading-zero behaviour
+- [ ] v4.1.4 Digit bleed
+- [ ] v4.1.5 Ghosting
+- [ ] v4.1.6 Uneven brightness
+- [ ] v4.1.7 Load sag
+- [ ] v4.1.8 Tests, previews and docs checkpoint
 
 ## Workflow
 
