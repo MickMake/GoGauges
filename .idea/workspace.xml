@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e086986a-adb9-45ea-92da-f2fbe9c7fb9c" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/GoDriveLog.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/GoGauges.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
     </list>
@@ -39,7 +39,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "go.import.settings.migrated": "true",
-    "last_opened_file_path": "/Users/mick/Documents/GitHub/GoDriveLog",
+    "last_opened_file_path": "/Users/mick/Documents/GitHub/GoGauges",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm"

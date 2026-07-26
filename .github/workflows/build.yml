@@ -49,4 +49,4 @@ jobs:
         run: go test ./internal/... ./scripts/generate-example-assets
 
       - name: Compile-check GUI command package
-        run: go test -c ./cmd/GoDriveLog
+        run: go test -c ./cmd/GoGauges
