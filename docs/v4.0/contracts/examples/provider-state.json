@@ -1,0 +1,32 @@
+{
+  "contract_version": 1,
+  "provider_id": "vehicle-power",
+  "instance_id": "a47b43d4-4296-4fd8-9e60-92af0bb6326a",
+  "sequence": 18427,
+  "published_at": "2026-08-02T08:15:32.421Z",
+  "signals": {
+    "battery.second.voltage": {
+      "value": 12.7,
+      "observed_at": "2026-08-02T08:15:32.100Z",
+      "valid": true,
+      "enabled": true,
+      "health": "ok"
+    },
+    "solar.power": {
+      "value": 183.4,
+      "observed_at": "2026-08-02T08:15:20.950Z",
+      "valid": false,
+      "enabled": true,
+      "health": "error",
+      "message": "Latest observation failed; value and timestamp are the last valid sample"
+    },
+    "tool_charger.state": {
+      "value": null,
+      "observed_at": null,
+      "valid": false,
+      "enabled": false,
+      "health": "unknown",
+      "message": "Disabled by provider configuration"
+    }
+  }
+}

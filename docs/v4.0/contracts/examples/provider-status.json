@@ -1,0 +1,12 @@
+{
+  "contract_version": 1,
+  "provider_id": "vehicle-power",
+  "instance_id": "a47b43d4-4296-4fd8-9e60-92af0bb6326a",
+  "provider_name": "Vehicle power",
+  "software": "GoDriveLog",
+  "software_version": "4.0.0-dev",
+  "online": true,
+  "enabled": true,
+  "health": "ok",
+  "message": ""
+}

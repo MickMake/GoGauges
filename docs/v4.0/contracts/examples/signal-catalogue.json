@@ -1,0 +1,42 @@
+{
+  "contract_version": 1,
+  "provider_id": "vehicle-power",
+  "instance_id": "a47b43d4-4296-4fd8-9e60-92af0bb6326a",
+  "revision": 4,
+  "definition_hash": "sha256:cf8795ddc36913f8ce4a3bb4d3e4d49b42987e14317d0d8fdd2837336a06c5ea",
+  "signals": [
+    {
+      "id": "battery.second.voltage",
+      "label": "Second battery voltage",
+      "type": "number",
+      "unit": "V",
+      "min": 0,
+      "max": 16,
+      "expected_update_ms": 1000,
+      "stale_after_ms": 5000
+    },
+    {
+      "id": "solar.power",
+      "label": "Solar power",
+      "type": "number",
+      "unit": "W",
+      "min": 0,
+      "max": 500,
+      "expected_update_ms": 1000,
+      "stale_after_ms": 5000
+    },
+    {
+      "id": "tool_charger.state",
+      "label": "Tool charger state",
+      "type": "enum",
+      "values": [
+        "idle",
+        "charging",
+        "complete",
+        "fault"
+      ],
+      "expected_update_ms": 5000,
+      "stale_after_ms": 15000
+    }
+  ]
+}
