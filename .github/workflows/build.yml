@@ -50,3 +50,4 @@ jobs:
 
       - name: Compile-check GUI command package
         run: go test -c ./cmd/GoDriveLog
+        run: go test -c ./cmd/GoGauges
