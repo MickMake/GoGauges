@@ -124,6 +124,8 @@ After reconnection:
 3. wait for the next complete non-retained state snapshot
 4. do not request or replay a historical state backlog
 
+MQTT connection state is a separate transport fact. A temporary consumer disconnect does not by itself rewrite signal freshness; retained values continue to age from their existing `observed_at` values until provider status and new state are learned again.
+
 ### Shutdown
 
 1. mark shutdown in progress
@@ -138,6 +140,14 @@ After reconnection:
 
 Shutdown is bounded and idempotent. Cache failure is reported but does not rewrite user configuration or invent live state.
 
+## Current-state-only signal ownership
+
+GoGauges Core version 1 stores current signal state only.
+
+It does not retain a general per-signal sample history for graphs, traces or widget effects, and later display code must not assume every MQTT sample is available from Core.
+
+If a later graph or history feature genuinely needs historical samples, that work may introduce a separate bounded history component with explicit ownership and retention policy. That component is not part of Core v1.
+
 ## Immutable Core snapshots
 
 A `CoreSnapshot` is a complete read-only view containing:
@@ -145,7 +155,7 @@ A `CoreSnapshot` is a complete read-only view containing:
 - MQTT connection summary
 - provider snapshots
 - catalogue information
-- signal state
+- current signal state
 - binding resolution
 - diagnostics summary
 - monotonically increasing Core revision
@@ -197,6 +207,6 @@ Track at least:
 - stale provider and stale signal counts
 - catalogue-cache load and flush failures
 - unresolved and incompatible bindings
-- control-queue depth and state coalescing count
+- control-queue depth, queue-pressure events and state coalescing count
 
 Diagnostics report conditions; they do not create a monitoring framework or a second control plane.
