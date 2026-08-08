@@ -46,6 +46,9 @@ Verify:
 - no historical state backlog is expected
 - latest complete state restores current values
 - GoGauges remains ready while MQTT is disconnected
+- MQTT disconnection is exposed separately from provider online/offline state and signal freshness
+- temporary MQTT disconnection does not itself force retained values stale
+- retained values continue ageing from `observed_at` during transport disconnection
 
 ## Provider conflict tests
 
@@ -56,9 +59,12 @@ Cover:
 - state from both instances blocked while conflicted
 - no silent merge or winner selection
 - recovery after explicit offline status
-- recovery after five seconds of single-instance activity
+- recovery after a configurable single-instance conflict-recovery timeout
+- provisional five-second default can be changed without altering conflict semantics
 - sequence reset for the surviving instance
 - no replay of state accumulated during conflict
+
+Use deterministic clocks. Do not encode five seconds as an architectural invariant in tests.
 
 ## Catalogue tests
 
@@ -112,6 +118,8 @@ Cover:
 - invalid state preserving the original `observed_at`
 - all four external health values: `ok`, `degraded`, `error`, `unknown`
 - provider offline and conflict dimensions remaining separate from signal health
+- Core retaining current state without accumulating general per-signal sample history
+- widgets or UI consumers not requiring every MQTT sample from Core
 
 ## Staleness tests
 
@@ -122,8 +130,9 @@ Cover:
 - never-observed freshness `unknown`
 - online signal becoming stale at `stale_after_ms`
 - omitted `stale_after_ms` producing `unknown` time freshness
-- provider offline making retained values stale
-- unobserved offline signal remaining `unknown`
+- explicit provider offline state making retained values stale where applicable
+- MQTT transport disconnection not itself rewriting freshness
+- retained values continuing to age from `observed_at` while MQTT is disconnected
 - disabled signal remaining freshness `unknown`
 - invalid retained value ageing from its original timestamp
 - future provider timestamp clamping and clock-skew diagnostics
@@ -152,6 +161,7 @@ Verify:
 - coalesced notifications allow slow consumers to fetch latest state
 - slow consumers do not block MQTT callbacks or Core mutation
 - no MQTT payloads, topics or GoDriveLog details cross the UI boundary
+- Core snapshots expose current state rather than an implicit unbounded sample history
 
 ## Queue and pressure tests
 
@@ -159,9 +169,15 @@ Cover:
 
 - bounded status/catalogue control queue
 - state update storm coalescing to latest snapshot
-- queue-pressure diagnostics
+- queue-pressure diagnostics when control capacity is reached
 - no unbounded memory growth
+- MQTT callback execution does not block indefinitely on a full control queue
+- status/catalogue messages are not silently discarded without diagnostics
+- chosen simple overflow implementation obeys cancellation and boundedness
+- superseded control-message replacement occurs only where semantic equivalence is proven
 - malformed-message storms remaining isolated
+
+Exact control-queue capacity and enqueue timing are implementation tuning values and should not be hard-coded as architecture tests.
 
 ## Persistence tests
 
@@ -174,6 +190,7 @@ Cover:
 - failed cache write leaves dirty state for retry
 - synchronous shutdown flush
 - no persistence of live values, online state, instance ID, sequence or freshness
+- no persistence of general per-signal sample history in Core v1
 
 ## Race detector focus
 
