@@ -58,7 +58,16 @@ A malformed message is rejected in isolation. It does not partially update Core 
 
 ### Status and catalogue
 
-Validated status and catalogue messages use a bounded FIFO control queue. Queue pressure is diagnosed. The implementation must not silently create an unbounded queue.
+Validated status and catalogue messages use a bounded FIFO control queue.
+
+The queue must never grow without bound. When it reaches capacity:
+
+- report queue pressure prominently through diagnostics
+- do not block an MQTT callback indefinitely
+- do not silently discard status or catalogue messages without diagnostics
+- use the simplest safe bounded implementation available during coding, such as brief cancellable blocking or replacing superseded control messages only where semantic equivalence can be proven
+
+Exact capacity, enqueue timing and the chosen simple overflow technique are implementation tuning values. Version 1 does not introduce a priority queue, event bus or control-message framework merely to handle this case.
 
 ### State
 
@@ -92,7 +101,7 @@ Cached metadata never proves that a provider is online.
 
 ## Provider instance changes
 
-A clean instance transition occurs when the old instance is offline or expired and a new instance becomes the accepted live instance.
+A clean instance transition occurs when the old instance is offline or otherwise no longer accepted and a new instance becomes the accepted live instance.
 
 On acceptance of a new `instance_id`:
 
@@ -116,10 +125,14 @@ While conflicted:
 - stop applying state from all conflicting instances
 - do not choose a winner by sequence, UUID, arrival time or connection order
 
+The conflict-resolution mechanism is accepted, but the exact recovery timeout is not an architectural constant.
+
 A conflict clears:
 
 - immediately when all but one instance explicitly report offline; or
-- after only one instance remains active for five seconds
+- after only one instance continues to be observed as live for a configurable conflict-recovery timeout
+
+Five seconds is a provisional suggested default. It is not recorded as a user-selected value and must be easy to tune during implementation.
 
 When conflict clears, accept the surviving instance, reset sequence tracking and wait for or apply only its current valid complete snapshot. Snapshots received during conflict are not replayed as a backlog.
 
@@ -188,7 +201,7 @@ The signal store is keyed by:
 provider_id + signal_id
 ```
 
-Each signal view preserves:
+Each signal view preserves current state only:
 
 - catalogue availability
 - retained typed value, if any
@@ -196,12 +209,14 @@ Each signal view preserves:
 - `valid`
 - `enabled`
 - external signal health and message
-- effective provider online state
+- provider reported online/offline state
 - provider conflict state
 - accepted provider instance
 - last accepted snapshot sequence
 - snapshot `published_at` for diagnostics
 - consumer-calculated freshness
+
+Core version 1 does not maintain general per-signal sample history. Graph or history functionality may later add a separate bounded history component if required. Widgets must not depend on Core retaining every MQTT sample.
 
 No widget animation, rendering cadence or gauge physics belongs in the signal store.
 
@@ -217,7 +232,7 @@ When a signal is invalid but includes the last good value:
 
 An invalid observation must not make an old value appear fresh.
 
-## Staleness
+## Staleness and MQTT transport state
 
 Freshness is a separate consumer-calculated value:
 
@@ -227,16 +242,26 @@ fresh
 stale
 ```
 
-Rules:
+Keep these facts separate:
+
+- MQTT connection state
+- provider reported online/offline state
+- signal freshness
+- signal validity
+- signal health
+
+Freshness rules:
 
 - never observed: `unknown`
 - disabled: freshness remains `unknown`
-- no `stale_after_ms` while provider is online: `unknown`
+- no `stale_after_ms` while the provider is not explicitly offline: `unknown`
 - age exceeds `stale_after_ms`: `stale`
-- provider offline or MQTT connection unavailable:
-  - retained values become `stale`
-  - unobserved values remain `unknown`
+- explicit provider offline state may force a retained value `stale`
 - invalid retained values still age from their original `observed_at`
+
+A temporary GoGauges MQTT disconnection does not itself rewrite signal freshness. Existing retained values continue to age according to `observed_at` and `stale_after_ms`. MQTT disconnection is exposed separately as transport/diagnostic state.
+
+After reconnect, retained provider status and catalogue re-establish provider knowledge, and the next complete state snapshot restores live current state.
 
 ### Timer strategy
 
