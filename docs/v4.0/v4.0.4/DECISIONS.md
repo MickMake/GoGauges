@@ -12,7 +12,11 @@ Chat 4 decision identifiers use `GG-C###` and do not reuse identifiers from earl
 
 **Decision:** Validated status and catalogue messages enter a bounded FIFO control queue. Complete state snapshots use one coalescing latest-state slot per `provider_id + instance_id`, with a capacity-one wake notification.
 
-**Reason:** Status and catalogue traffic is low-rate and should be processed in order. State is a complete replaceable snapshot, so queuing obsolete snapshots wastes memory and latency.
+The control queue must never grow without bound. When it reaches capacity, GoGauges reports queue pressure prominently and uses the simplest safe bounded handling available during implementation, such as brief cancellable blocking or replacing superseded control messages only where semantic equivalence can be proven. MQTT callback execution must not block indefinitely, and status or catalogue messages must not be silently discarded without diagnostics.
+
+Exact queue capacity, enqueue timing and the chosen simple overflow technique are implementation tuning values rather than architectural constants.
+
+**Reason:** Status and catalogue traffic is low-rate and should be processed coherently. State is a complete replaceable snapshot, so queuing obsolete snapshots wastes memory and latency. A bounded control path must also define failure visibility without introducing a priority or event framework.
 
 ## GG-C003 — Offline-capable readiness
 
@@ -27,11 +31,13 @@ Chat 4 decision identifiers use `GG-C###` and do not reuse identifiers from earl
 A conflict clears:
 
 - immediately when all but one instance explicitly report offline; or
-- after only one instance remains active for five seconds.
+- after only one instance continues to be observed as live for a configurable conflict-recovery timeout.
+
+Five seconds is a provisional suggested default for that timeout, not a user-selected architectural constant. The value must be easy to tune during implementation without changing the conflict-resolution mechanism.
 
 Sequence tracking resets when the surviving instance is accepted. State received during the conflict is not replayed or merged.
 
-**Reason:** `provider_id` is a durable public identity, while `instance_id` identifies one process. Silent merging would make state origin unknowable.
+**Reason:** `provider_id` is a durable public identity, while `instance_id` identifies one process. Silent merging would make state origin unknowable. The recovery mechanism matters architecturally; the exact timeout is an operational tuning value.
 
 ## GG-C005 — Atomic complete-snapshot processing
 
@@ -43,11 +49,13 @@ When a new instance is accepted, previous live values are cleared to unobserved 
 
 ## GG-C006 — Consumer-owned staleness engine
 
-**Decision:** GoGauges calculates staleness with one Core timer using the retained value's `observed_at`, catalogue `stale_after_ms` and effective provider availability. There is no goroutine or timer per signal.
+**Decision:** GoGauges calculates staleness with one Core timer using the retained value's `observed_at`, catalogue `stale_after_ms` and explicit provider availability. There is no goroutine or timer per signal.
 
-Freshness is represented separately as `unknown`, `fresh` or `stale`; validity, enabled state, provider online state, conflict and health remain separate facts.
+Freshness is represented separately as `unknown`, `fresh` or `stale`; validity, enabled state, provider reported online/offline state, MQTT transport connection state, conflict and health remain separate facts.
 
-**Reason:** Collapsing these facts into one status creates contradictory states and makes deterministic testing difficult.
+An explicit provider offline state may force retained values stale. Ordinary freshness otherwise continues to age from `observed_at`. Temporary GoGauges MQTT disconnection is exposed separately as transport state and does not itself rewrite signal freshness.
+
+**Reason:** Collapsing transport connectivity, provider state and signal freshness into one status creates contradictory states and makes deterministic testing difficult.
 
 ## GG-C007 — Immutable UI boundary
 
@@ -75,3 +83,11 @@ The catalogue cache uses the platform user-cache directory, flushes dirty state 
 When a provider is offline or a signal disappears, bindings are preserved. A returning signal reconnects automatically only when its stable identity and value type remain compatible. An incompatible type change leaves the binding unresolved and reports the incompatibility.
 
 **Reason:** Runtime process identity must not destroy durable user configuration, but silent type changes are unsafe.
+
+## GG-C010 — Current-state-only signal store
+
+**Decision:** GoGauges Core version 1 stores current signal state only. It does not maintain a general per-signal sample history for graphs, traces or widgets, and later UI code must not depend on Core retaining every MQTT sample.
+
+If graph or history functionality later requires historical samples, it may introduce a separate explicitly bounded history component with its own ownership and retention policy.
+
+**Reason:** Current dashboard state and sample-history retention are different responsibilities. Keeping history out of Core v1 avoids unbounded memory growth and unnecessary coupling to hypothetical graph consumers.
